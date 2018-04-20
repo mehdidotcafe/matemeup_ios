@@ -7,13 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A0CEF07206B46F800ACA8B7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */; };
+		8A153A20207332F50045EB6A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8A153A1F207332F50045EB6A /* Podfile */; };
+		8A3C8437206470D3005253F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A3C8436206470D3005253F8 /* Assets.xcassets */; };
+		8A3C843920647116005253F8 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A3C843820647116005253F8 /* logo.png */; };
+		8A488DEC2069976300E05C52 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A488DEB2069976300E05C52 /* Navigation.swift */; };
+		8A4A6706206DC0E0006B6646 /* logo-margin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A6705206DC0DE006B6646 /* logo-margin.png */; };
+		8A4A6708206E0866006B6646 /* ConnectedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A6707206E0866006B6646 /* ConnectedUser.swift */; };
+		8A58A1F92070607800C0E7A2 /* AccountModifierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */; };
+		8A58A1FB2070777200C0E7A2 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1FA2070777200C0E7A2 /* Getter.swift */; };
+		8A58A1FD2070800800C0E7A2 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1FC2070800800C0E7A2 /* DateConverter.swift */; };
+		8A6495A8206CD16C005DBA36 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6495A7206CD16B005DBA36 /* LoginController.swift */; };
+		8A6CCAF42089068600FAE47C /* MMUWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAF32089068600FAE47C /* MMUWebSocket.swift */; };
+		8A6CCAF82089784E00FAE47C /* ChatNormalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAF72089784E00FAE47C /* ChatNormalController.swift */; };
+		8A6CCAFA2089785E00FAE47C /* ChatInvitationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAF92089785E00FAE47C /* ChatInvitationController.swift */; };
+		8A6CCAFC2089786E00FAE47C /* AChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAFB2089786E00FAE47C /* AChatListController.swift */; };
+		8A7605832072CF28004D6D04 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605822072CF27004D6D04 /* GooglePlaces.framework */; };
+		8A7605912072D17E004D6D04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605852072D17C004D6D04 /* CoreGraphics.framework */; };
+		8A7605922072D17E004D6D04 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605862072D17C004D6D04 /* GLKit.framework */; };
+		8A7605932072D17E004D6D04 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605872072D17D004D6D04 /* ImageIO.framework */; };
+		8A7605942072D17E004D6D04 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605882072D17D004D6D04 /* CoreText.framework */; };
+		8A7605952072D17E004D6D04 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605892072D17D004D6D04 /* libz.tbd */; };
+		8A7605962072D17E004D6D04 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76058A2072D17D004D6D04 /* OpenGLES.framework */; };
+		8A7605972072D17E004D6D04 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76058B2072D17D004D6D04 /* CoreLocation.framework */; };
+		8A7605982072D17E004D6D04 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76058C2072D17D004D6D04 /* CoreTelephony.framework */; };
+		8A7605992072D17E004D6D04 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76058D2072D17D004D6D04 /* libc++.tbd */; };
+		8A76059A2072D17E004D6D04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76058E2072D17D004D6D04 /* CoreData.framework */; };
+		8A76059B2072D17E004D6D04 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76058F2072D17D004D6D04 /* Accelerate.framework */; };
+		8A76059C2072D17E004D6D04 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605902072D17D004D6D04 /* CoreImage.framework */; };
+		8A76059F2072D198004D6D04 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76059D2072D197004D6D04 /* QuartzCore.framework */; };
+		8A7605A02072D198004D6D04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76059E2072D198004D6D04 /* SystemConfiguration.framework */; };
+		8A7605A22072D19F004D6D04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605A12072D19F004D6D04 /* UIKit.framework */; };
+		8A7605A42072D503004D6D04 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605A32072D502004D6D04 /* GoogleMapsBase.framework */; };
 		8A9F4E252062FF2100810D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F4E242062FF2100810D61 /* AppDelegate.swift */; };
-		8A9F4E272062FF2100810D61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F4E262062FF2100810D61 /* ViewController.swift */; };
 		8A9F4E2A2062FF2100810D61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9F4E282062FF2100810D61 /* Main.storyboard */; };
-		8A9F4E2C2062FF2100810D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9F4E2B2062FF2100810D61 /* Assets.xcassets */; };
 		8A9F4E2F2062FF2100810D61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9F4E2D2062FF2100810D61 /* LaunchScreen.storyboard */; };
 		8A9F4E3A2062FF2100810D61 /* matemeupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F4E392062FF2100810D61 /* matemeupTests.swift */; };
 		8A9F4E452062FF2100810D61 /* matemeupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F4E442062FF2100810D61 /* matemeupUITests.swift */; };
+		8AA41FFB20672550000E8F01 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA41FFA20672550000E8F01 /* Request.swift */; };
+		8AA41FFD206752D1000E8F01 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA41FFC206752D0000E8F01 /* Callback.swift */; };
+		8AA41FFF20676803000E8F01 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA41FFE20676803000E8F01 /* Storage.swift */; };
+		8AA4200120676939000E8F01 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4200020676939000E8F01 /* JWT.swift */; };
+		8AA42003206771D3000E8F01 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA42002206771D3000E8F01 /* MainController.swift */; };
+		8AA9FB6A2068666200975DD0 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB692068666200975DD0 /* ChatController.swift */; };
+		8AA9FB6C206866B500975DD0 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB6B206866B500975DD0 /* ProfileController.swift */; };
+		8AB52FBC20866FA1004EA404 /* LayoutUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */; };
+		8AB52FBE2086740E004EA404 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB52FBD2086740E004EA404 /* WebSocket.swift */; };
+		8AC42690206B6C8C00ECB391 /* NavbarLogoCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4268F206B6C8C00ECB391 /* NavbarLogoCenter.swift */; };
+		8AC42692206B737300ECB391 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC42691206B737200ECB391 /* ForgotPasswordController.swift */; };
+		8AC42694206B7D2A00ECB391 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC42693206B7D2A00ECB391 /* Validator.swift */; };
+		8AD000CC2064756800E17F9C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AD000CB2064756800E17F9C /* background.png */; };
+		8AE9C7C2206A3C5D001A970F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9C7C1206A3C5D001A970F /* APIRequest.swift */; };
+		8AE9C7C4206A3FFD001A970F /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9C7C3206A3FFD001A970F /* ImageRequest.swift */; };
+		8AF6C961206A0C600069DF5C /* backtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF6C960206A0C600069DF5C /* backtitle.png */; };
+		8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */; };
+		8AF6C965206A17330069DF5C /* AvatarRemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */; };
+		AE8C76EFBF185CBF2430FF32 /* Pods_matemeup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827E267FB09D7E0C688F3CB4 /* Pods_matemeup.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +83,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067CD707F5FBE913C25CE306 /* Pods-matemeup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matemeup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matemeup/Pods-matemeup.debug.xcconfig"; sourceTree = "<group>"; };
+		827E267FB09D7E0C688F3CB4 /* Pods_matemeup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matemeup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		8A153A1F207332F50045EB6A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		8A3C8436206470D3005253F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A3C843820647116005253F8 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = matemeup/Assets.xcassets/logo/logo.png; sourceTree = "<group>"; };
+		8A488DEB2069976300E05C52 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		8A4A6705206DC0DE006B6646 /* logo-margin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-margin.png"; path = "matemeup/Assets.xcassets/logo/logo-margin.png"; sourceTree = "<group>"; };
+		8A4A6707206E0866006B6646 /* ConnectedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedUser.swift; sourceTree = "<group>"; };
+		8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifierController.swift; sourceTree = "<group>"; };
+		8A58A1FA2070777200C0E7A2 /* Getter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
+		8A58A1FC2070800800C0E7A2 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
+		8A6495A7206CD16B005DBA36 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		8A6CCAF32089068600FAE47C /* MMUWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMUWebSocket.swift; sourceTree = "<group>"; };
+		8A6CCAF72089784E00FAE47C /* ChatNormalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNormalController.swift; sourceTree = "<group>"; };
+		8A6CCAF92089785E00FAE47C /* ChatInvitationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInvitationController.swift; sourceTree = "<group>"; };
+		8A6CCAFB2089786E00FAE47C /* AChatListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AChatListController.swift; sourceTree = "<group>"; };
+		8A7605822072CF27004D6D04 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
+		8A7605852072D17C004D6D04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8A7605862072D17C004D6D04 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		8A7605872072D17D004D6D04 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		8A7605882072D17D004D6D04 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		8A7605892072D17D004D6D04 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8A76058A2072D17D004D6D04 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8A76058B2072D17D004D6D04 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8A76058C2072D17D004D6D04 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8A76058D2072D17D004D6D04 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8A76058E2072D17D004D6D04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8A76058F2072D17D004D6D04 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8A7605902072D17D004D6D04 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		8A76059D2072D197004D6D04 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8A76059E2072D198004D6D04 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A7605A12072D19F004D6D04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8A7605A32072D502004D6D04 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = "../../../Downloads/GoogleMaps-2.6.0/Base/Frameworks/GoogleMapsBase.framework"; sourceTree = "<group>"; };
 		8A9F4E212062FF2100810D61 /* matemeup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = matemeup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9F4E242062FF2100810D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A9F4E262062FF2100810D61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A9F4E292062FF2100810D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8A9F4E2B2062FF2100810D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A9F4E2E2062FF2100810D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A9F4E302062FF2100810D61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A9F4E352062FF2100810D61 /* matemeupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = matemeupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +128,25 @@
 		8A9F4E402062FF2100810D61 /* matemeupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = matemeupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9F4E442062FF2100810D61 /* matemeupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matemeupUITests.swift; sourceTree = "<group>"; };
 		8A9F4E462062FF2100810D61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AA41FFA20672550000E8F01 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		8AA41FFC206752D0000E8F01 /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		8AA41FFE20676803000E8F01 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		8AA4200020676939000E8F01 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		8AA42002206771D3000E8F01 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		8AA9FB692068666200975DD0 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		8AA9FB6B206866B500975DD0 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUIViewController.swift; sourceTree = "<group>"; };
+		8AB52FBD2086740E004EA404 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		8AC4268F206B6C8C00ECB391 /* NavbarLogoCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarLogoCenter.swift; sourceTree = "<group>"; };
+		8AC42691206B737200ECB391 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		8AC42693206B7D2A00ECB391 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		8AD000CB2064756800E17F9C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = matemeup/Assets.xcassets/background/background.png; sourceTree = "<group>"; };
+		8AE9C7C1206A3C5D001A970F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		8AE9C7C3206A3FFD001A970F /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		8AF6C960206A0C600069DF5C /* backtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backtitle.png; path = matemeup/Assets.xcassets/backtitle/backtitle.png; sourceTree = "<group>"; };
+		8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteImageLoader.swift; path = /Users/mehdimeddour/Documents/matemeup/matemeup/RemoteImageLoader.swift; sourceTree = "<absolute>"; };
+		8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarRemoteImageLoader.swift; path = /Users/mehdimeddour/Documents/matemeup/matemeup/AvatarRemoteImageLoader.swift; sourceTree = "<absolute>"; };
+		ED0FD234E7DEBC91E5F11EC6 /* Pods-matemeup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matemeup.release.xcconfig"; path = "Pods/Target Support Files/Pods-matemeup/Pods-matemeup.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +154,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7605A22072D19F004D6D04 /* UIKit.framework in Frameworks */,
+				8A76059F2072D198004D6D04 /* QuartzCore.framework in Frameworks */,
+				8A7605A02072D198004D6D04 /* SystemConfiguration.framework in Frameworks */,
+				8A7605912072D17E004D6D04 /* CoreGraphics.framework in Frameworks */,
+				8A7605922072D17E004D6D04 /* GLKit.framework in Frameworks */,
+				8A7605932072D17E004D6D04 /* ImageIO.framework in Frameworks */,
+				8A7605A42072D503004D6D04 /* GoogleMapsBase.framework in Frameworks */,
+				8A7605942072D17E004D6D04 /* CoreText.framework in Frameworks */,
+				8A7605952072D17E004D6D04 /* libz.tbd in Frameworks */,
+				8A7605962072D17E004D6D04 /* OpenGLES.framework in Frameworks */,
+				8A7605972072D17E004D6D04 /* CoreLocation.framework in Frameworks */,
+				8A7605982072D17E004D6D04 /* CoreTelephony.framework in Frameworks */,
+				8A7605992072D17E004D6D04 /* libc++.tbd in Frameworks */,
+				8A76059A2072D17E004D6D04 /* CoreData.framework in Frameworks */,
+				8A76059B2072D17E004D6D04 /* Accelerate.framework in Frameworks */,
+				8A76059C2072D17E004D6D04 /* CoreImage.framework in Frameworks */,
+				8A7605832072CF28004D6D04 /* GooglePlaces.framework in Frameworks */,
+				AE8C76EFBF185CBF2430FF32 /* Pods_matemeup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +192,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A7605842072D17C004D6D04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A7605A12072D19F004D6D04 /* UIKit.framework */,
+				8A76059D2072D197004D6D04 /* QuartzCore.framework */,
+				8A76059E2072D198004D6D04 /* SystemConfiguration.framework */,
+				8A76058F2072D17D004D6D04 /* Accelerate.framework */,
+				8A76058E2072D17D004D6D04 /* CoreData.framework */,
+				8A7605852072D17C004D6D04 /* CoreGraphics.framework */,
+				8A7605902072D17D004D6D04 /* CoreImage.framework */,
+				8A76058B2072D17D004D6D04 /* CoreLocation.framework */,
+				8A76058C2072D17D004D6D04 /* CoreTelephony.framework */,
+				8A7605882072D17D004D6D04 /* CoreText.framework */,
+				8A7605862072D17C004D6D04 /* GLKit.framework */,
+				8A7605872072D17D004D6D04 /* ImageIO.framework */,
+				8A76058D2072D17D004D6D04 /* libc++.tbd */,
+				8A7605892072D17D004D6D04 /* libz.tbd */,
+				8A76058A2072D17D004D6D04 /* OpenGLES.framework */,
+				827E267FB09D7E0C688F3CB4 /* Pods_matemeup.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8A9F4E182062FF2100810D61 = {
 			isa = PBXGroup;
 			children = (
+				8A153A1F207332F50045EB6A /* Podfile */,
+				8A4A6705206DC0DE006B6646 /* logo-margin.png */,
+				8AF6C960206A0C600069DF5C /* backtitle.png */,
+				8A3C843820647116005253F8 /* logo.png */,
+				8AD000CB2064756800E17F9C /* background.png */,
 				8A9F4E232062FF2100810D61 /* matemeup */,
 				8A9F4E382062FF2100810D61 /* matemeupTests */,
 				8A9F4E432062FF2100810D61 /* matemeupUITests */,
 				8A9F4E222062FF2100810D61 /* Products */,
+				8A7605842072D17C004D6D04 /* Frameworks */,
+				DDAA700F883567CC3A14B552 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +245,40 @@
 		8A9F4E232062FF2100810D61 /* matemeup */ = {
 			isa = PBXGroup;
 			children = (
+				8A7605A32072D502004D6D04 /* GoogleMapsBase.framework */,
+				8A7605822072CF27004D6D04 /* GooglePlaces.framework */,
+				8A6495A7206CD16B005DBA36 /* LoginController.swift */,
+				8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */,
+				8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */,
 				8A9F4E242062FF2100810D61 /* AppDelegate.swift */,
-				8A9F4E262062FF2100810D61 /* ViewController.swift */,
+				8AA42002206771D3000E8F01 /* MainController.swift */,
 				8A9F4E282062FF2100810D61 /* Main.storyboard */,
-				8A9F4E2B2062FF2100810D61 /* Assets.xcassets */,
+				8AA4200020676939000E8F01 /* JWT.swift */,
+				8A3C8436206470D3005253F8 /* Assets.xcassets */,
 				8A9F4E2D2062FF2100810D61 /* LaunchScreen.storyboard */,
 				8A9F4E302062FF2100810D61 /* Info.plist */,
+				8AA41FFA20672550000E8F01 /* Request.swift */,
+				8AA41FFC206752D0000E8F01 /* Callback.swift */,
+				8AA41FFE20676803000E8F01 /* Storage.swift */,
+				8AA9FB692068666200975DD0 /* ChatController.swift */,
+				8AA9FB6B206866B500975DD0 /* ProfileController.swift */,
+				8A488DEB2069976300E05C52 /* Navigation.swift */,
+				8AE9C7C1206A3C5D001A970F /* APIRequest.swift */,
+				8AE9C7C3206A3FFD001A970F /* ImageRequest.swift */,
+				8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */,
+				8AC4268F206B6C8C00ECB391 /* NavbarLogoCenter.swift */,
+				8AC42691206B737200ECB391 /* ForgotPasswordController.swift */,
+				8AC42693206B7D2A00ECB391 /* Validator.swift */,
+				8A4A6707206E0866006B6646 /* ConnectedUser.swift */,
+				8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */,
+				8A58A1FA2070777200C0E7A2 /* Getter.swift */,
+				8A58A1FC2070800800C0E7A2 /* DateConverter.swift */,
+				8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */,
+				8AB52FBD2086740E004EA404 /* WebSocket.swift */,
+				8A6CCAF32089068600FAE47C /* MMUWebSocket.swift */,
+				8A6CCAF72089784E00FAE47C /* ChatNormalController.swift */,
+				8A6CCAF92089785E00FAE47C /* ChatInvitationController.swift */,
+				8A6CCAFB2089786E00FAE47C /* AChatListController.swift */,
 			);
 			path = matemeup;
 			sourceTree = "<group>";
@@ -125,6 +301,15 @@
 			path = matemeupUITests;
 			sourceTree = "<group>";
 		};
+		DDAA700F883567CC3A14B552 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				067CD707F5FBE913C25CE306 /* Pods-matemeup.debug.xcconfig */,
+				ED0FD234E7DEBC91E5F11EC6 /* Pods-matemeup.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +317,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A9F4E492062FF2100810D61 /* Build configuration list for PBXNativeTarget "matemeup" */;
 			buildPhases = (
+				00BF2B9A0A6D2D9CA6593EEB /* [CP] Check Pods Manifest.lock */,
 				8A9F4E1D2062FF2100810D61 /* Sources */,
 				8A9F4E1E2062FF2100810D61 /* Frameworks */,
 				8A9F4E1F2062FF2100810D61 /* Resources */,
+				1B11E874C90B26ED2BE90813 /* [CP] Embed Pods Frameworks */,
+				120D3B263783D03FD3F1D823 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,9 +420,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3C843920647116005253F8 /* logo.png in Resources */,
+				8AD000CC2064756800E17F9C /* background.png in Resources */,
+				8A153A20207332F50045EB6A /* Podfile in Resources */,
 				8A9F4E2F2062FF2100810D61 /* LaunchScreen.storyboard in Resources */,
-				8A9F4E2C2062FF2100810D61 /* Assets.xcassets in Resources */,
+				8AF6C961206A0C600069DF5C /* backtitle.png in Resources */,
+				8A4A6706206DC0E0006B6646 /* logo-margin.png in Resources */,
 				8A9F4E2A2062FF2100810D61 /* Main.storyboard in Resources */,
+				8A3C8437206470D3005253F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +447,98 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00BF2B9A0A6D2D9CA6593EEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-matemeup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		120D3B263783D03FD3F1D823 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-matemeup/Pods-matemeup-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-matemeup/Pods-matemeup-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B11E874C90B26ED2BE90813 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-matemeup/Pods-matemeup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-matemeup/Pods-matemeup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A9F4E1D2062FF2100810D61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A9F4E272062FF2100810D61 /* ViewController.swift in Sources */,
+				8AF6C965206A17330069DF5C /* AvatarRemoteImageLoader.swift in Sources */,
+				8AB52FBE2086740E004EA404 /* WebSocket.swift in Sources */,
+				8AE9C7C2206A3C5D001A970F /* APIRequest.swift in Sources */,
+				8A58A1F92070607800C0E7A2 /* AccountModifierController.swift in Sources */,
+				8A6CCAF82089784E00FAE47C /* ChatNormalController.swift in Sources */,
+				8A6CCAFC2089786E00FAE47C /* AChatListController.swift in Sources */,
+				8A4A6708206E0866006B6646 /* ConnectedUser.swift in Sources */,
+				8AA42003206771D3000E8F01 /* MainController.swift in Sources */,
+				8AA41FFB20672550000E8F01 /* Request.swift in Sources */,
+				8A0CEF07206B46F800ACA8B7 /* RegisterController.swift in Sources */,
+				8AE9C7C4206A3FFD001A970F /* ImageRequest.swift in Sources */,
+				8AA9FB6A2068666200975DD0 /* ChatController.swift in Sources */,
+				8AC42692206B737300ECB391 /* ForgotPasswordController.swift in Sources */,
+				8AA41FFD206752D1000E8F01 /* Callback.swift in Sources */,
+				8AC42694206B7D2A00ECB391 /* Validator.swift in Sources */,
+				8AA9FB6C206866B500975DD0 /* ProfileController.swift in Sources */,
+				8A58A1FB2070777200C0E7A2 /* Getter.swift in Sources */,
+				8AB52FBC20866FA1004EA404 /* LayoutUIViewController.swift in Sources */,
 				8A9F4E252062FF2100810D61 /* AppDelegate.swift in Sources */,
+				8A488DEC2069976300E05C52 /* Navigation.swift in Sources */,
+				8A6495A8206CD16C005DBA36 /* LoginController.swift in Sources */,
+				8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */,
+				8A6CCAF42089068600FAE47C /* MMUWebSocket.swift in Sources */,
+				8A6CCAFA2089785E00FAE47C /* ChatInvitationController.swift in Sources */,
+				8AC42690206B6C8C00ECB391 /* NavbarLogoCenter.swift in Sources */,
+				8A58A1FD2070800800C0E7A2 /* DateConverter.swift in Sources */,
+				8AA41FFF20676803000E8F01 /* Storage.swift in Sources */,
+				8AA4200120676939000E8F01 /* JWT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,11 +702,18 @@
 		};
 		8A9F4E4A2062FF2100810D61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 067CD707F5FBE913C25CE306 /* Pods-matemeup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UJ286PXHV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/matemeup",
+				);
 				INFOPLIST_FILE = matemeup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = matemeup.matemeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -438,11 +723,18 @@
 		};
 		8A9F4E4B2062FF2100810D61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED0FD234E7DEBC91E5F11EC6 /* Pods-matemeup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UJ286PXHV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/matemeup",
+				);
 				INFOPLIST_FILE = matemeup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = matemeup.matemeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
