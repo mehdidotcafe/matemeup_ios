@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A08BBC9209DF0F30097451D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08BBC8209DF0F30097451D /* Constants.swift */; };
+		8A08BBCD209E19370097451D /* ChatRemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08BBCC209E19370097451D /* ChatRemoteImageLoader.swift */; };
+		8A08BBCF209E6F8E0097451D /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08BBCE209E6F8E0097451D /* FriendController.swift */; };
 		8A0CEF07206B46F800ACA8B7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */; };
+		8A1133CD208CD6AE009AF8F6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1133CC208CD6AE009AF8F6 /* Message.swift */; };
+		8A1133CF208CFE37009AF8F6 /* ChatContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1133CE208CFE37009AF8F6 /* ChatContainerController.swift */; };
+		8A1133D1208D32A5009AF8F6 /* Scroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1133D0208D32A5009AF8F6 /* Scroller.swift */; };
+		8A13328D209F5FB400630181 /* PendingCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13328C209F5FB400630181 /* PendingCollectionController.swift */; };
+		8A133291209FDCCD00630181 /* FriendTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A133290209FDCCD00630181 /* FriendTableController.swift */; };
 		8A153A20207332F50045EB6A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8A153A1F207332F50045EB6A /* Podfile */; };
 		8A3C8437206470D3005253F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A3C8436206470D3005253F8 /* Assets.xcassets */; };
 		8A3C843920647116005253F8 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A3C843820647116005253F8 /* logo.png */; };
 		8A488DEC2069976300E05C52 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A488DEB2069976300E05C52 /* Navigation.swift */; };
 		8A4A6706206DC0E0006B6646 /* logo-margin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A6705206DC0DE006B6646 /* logo-margin.png */; };
 		8A4A6708206E0866006B6646 /* ConnectedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A6707206E0866006B6646 /* ConnectedUser.swift */; };
+		8A504D7A208BFC6500EC0087 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A504D79208BFC6500EC0087 /* ChatController.swift */; };
+		8A504D7C208C1B4F00EC0087 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A504D7B208C1B4F00EC0087 /* User.swift */; };
+		8A588C5B20A24F3800D520BB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A588C5A20A24F3800D520BB /* TabBarController.swift */; };
 		8A58A1F92070607800C0E7A2 /* AccountModifierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */; };
 		8A58A1FB2070777200C0E7A2 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1FA2070777200C0E7A2 /* Getter.swift */; };
 		8A58A1FD2070800800C0E7A2 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1FC2070800800C0E7A2 /* DateConverter.swift */; };
@@ -49,7 +60,7 @@
 		8AA41FFF20676803000E8F01 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA41FFE20676803000E8F01 /* Storage.swift */; };
 		8AA4200120676939000E8F01 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4200020676939000E8F01 /* JWT.swift */; };
 		8AA42003206771D3000E8F01 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA42002206771D3000E8F01 /* MainController.swift */; };
-		8AA9FB6A2068666200975DD0 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB692068666200975DD0 /* ChatController.swift */; };
+		8AA9FB6A2068666200975DD0 /* ChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB692068666200975DD0 /* ChatListController.swift */; };
 		8AA9FB6C206866B500975DD0 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB6B206866B500975DD0 /* ProfileController.swift */; };
 		8AB52FBC20866FA1004EA404 /* LayoutUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */; };
 		8AB52FBE2086740E004EA404 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB52FBD2086740E004EA404 /* WebSocket.swift */; };
@@ -59,6 +70,10 @@
 		8AD000CC2064756800E17F9C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AD000CB2064756800E17F9C /* background.png */; };
 		8AE9C7C2206A3C5D001A970F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9C7C1206A3C5D001A970F /* APIRequest.swift */; };
 		8AE9C7C4206A3FFD001A970F /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9C7C3206A3FFD001A970F /* ImageRequest.swift */; };
+		8AEE1CF320A9FF330029DCCC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE1CF220A9FF320029DCCC /* Style.swift */; };
+		8AEE1CF720AA0A770029DCCC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE1CF620AA0A770029DCCC /* NavigationController.swift */; };
+		8AEE1CF920AA2EDF0029DCCC /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE1CF820AA2EDF0029DCCC /* Navbar.swift */; };
+		8AEE1CFB20AA5AB00029DCCC /* NewMessageNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE1CFA20AA5AB00029DCCC /* NewMessageNotifier.swift */; };
 		8AF6C961206A0C600069DF5C /* backtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF6C960206A0C600069DF5C /* backtitle.png */; };
 		8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */; };
 		8AF6C965206A17330069DF5C /* AvatarRemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */; };
@@ -85,13 +100,24 @@
 /* Begin PBXFileReference section */
 		067CD707F5FBE913C25CE306 /* Pods-matemeup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matemeup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-matemeup/Pods-matemeup.debug.xcconfig"; sourceTree = "<group>"; };
 		827E267FB09D7E0C688F3CB4 /* Pods_matemeup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_matemeup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A08BBC8209DF0F30097451D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8A08BBCC209E19370097451D /* ChatRemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRemoteImageLoader.swift; sourceTree = "<group>"; };
+		8A08BBCE209E6F8E0097451D /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
-		8A153A1F207332F50045EB6A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		8A1133CC208CD6AE009AF8F6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		8A1133CE208CFE37009AF8F6 /* ChatContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContainerController.swift; sourceTree = "<group>"; };
+		8A1133D0208D32A5009AF8F6 /* Scroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scroller.swift; sourceTree = "<group>"; };
+		8A13328C209F5FB400630181 /* PendingCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingCollectionController.swift; sourceTree = "<group>"; };
+		8A133290209FDCCD00630181 /* FriendTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableController.swift; sourceTree = "<group>"; };
+		8A153A1F207332F50045EB6A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8A3C8436206470D3005253F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A3C843820647116005253F8 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = matemeup/Assets.xcassets/logo/logo.png; sourceTree = "<group>"; };
 		8A488DEB2069976300E05C52 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		8A4A6705206DC0DE006B6646 /* logo-margin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-margin.png"; path = "matemeup/Assets.xcassets/logo/logo-margin.png"; sourceTree = "<group>"; };
 		8A4A6707206E0866006B6646 /* ConnectedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedUser.swift; sourceTree = "<group>"; };
+		8A504D79208BFC6500EC0087 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		8A504D7B208C1B4F00EC0087 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8A588C5A20A24F3800D520BB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifierController.swift; sourceTree = "<group>"; };
 		8A58A1FA2070777200C0E7A2 /* Getter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
 		8A58A1FC2070800800C0E7A2 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
@@ -133,7 +159,7 @@
 		8AA41FFE20676803000E8F01 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		8AA4200020676939000E8F01 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		8AA42002206771D3000E8F01 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		8AA9FB692068666200975DD0 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		8AA9FB692068666200975DD0 /* ChatListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListController.swift; sourceTree = "<group>"; };
 		8AA9FB6B206866B500975DD0 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUIViewController.swift; sourceTree = "<group>"; };
 		8AB52FBD2086740E004EA404 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
@@ -143,6 +169,10 @@
 		8AD000CB2064756800E17F9C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = matemeup/Assets.xcassets/background/background.png; sourceTree = "<group>"; };
 		8AE9C7C1206A3C5D001A970F /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		8AE9C7C3206A3FFD001A970F /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		8AEE1CF220A9FF320029DCCC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		8AEE1CF620AA0A770029DCCC /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		8AEE1CF820AA2EDF0029DCCC /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
+		8AEE1CFA20AA5AB00029DCCC /* NewMessageNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageNotifier.swift; sourceTree = "<group>"; };
 		8AF6C960206A0C600069DF5C /* backtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backtitle.png; path = matemeup/Assets.xcassets/backtitle/backtitle.png; sourceTree = "<group>"; };
 		8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteImageLoader.swift; path = /Users/mehdimeddour/Documents/matemeup/matemeup/RemoteImageLoader.swift; sourceTree = "<absolute>"; };
 		8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarRemoteImageLoader.swift; path = /Users/mehdimeddour/Documents/matemeup/matemeup/AvatarRemoteImageLoader.swift; sourceTree = "<absolute>"; };
@@ -260,7 +290,7 @@
 				8AA41FFA20672550000E8F01 /* Request.swift */,
 				8AA41FFC206752D0000E8F01 /* Callback.swift */,
 				8AA41FFE20676803000E8F01 /* Storage.swift */,
-				8AA9FB692068666200975DD0 /* ChatController.swift */,
+				8AA9FB692068666200975DD0 /* ChatListController.swift */,
 				8AA9FB6B206866B500975DD0 /* ProfileController.swift */,
 				8A488DEB2069976300E05C52 /* Navigation.swift */,
 				8AE9C7C1206A3C5D001A970F /* APIRequest.swift */,
@@ -279,6 +309,21 @@
 				8A6CCAF72089784E00FAE47C /* ChatNormalController.swift */,
 				8A6CCAF92089785E00FAE47C /* ChatInvitationController.swift */,
 				8A6CCAFB2089786E00FAE47C /* AChatListController.swift */,
+				8A504D79208BFC6500EC0087 /* ChatController.swift */,
+				8A504D7B208C1B4F00EC0087 /* User.swift */,
+				8A1133CC208CD6AE009AF8F6 /* Message.swift */,
+				8A1133CE208CFE37009AF8F6 /* ChatContainerController.swift */,
+				8A1133D0208D32A5009AF8F6 /* Scroller.swift */,
+				8A08BBC8209DF0F30097451D /* Constants.swift */,
+				8A08BBCC209E19370097451D /* ChatRemoteImageLoader.swift */,
+				8A08BBCE209E6F8E0097451D /* FriendController.swift */,
+				8A13328C209F5FB400630181 /* PendingCollectionController.swift */,
+				8AEE1CF220A9FF320029DCCC /* Style.swift */,
+				8A133290209FDCCD00630181 /* FriendTableController.swift */,
+				8A588C5A20A24F3800D520BB /* TabBarController.swift */,
+				8AEE1CF620AA0A770029DCCC /* NavigationController.swift */,
+				8AEE1CF820AA2EDF0029DCCC /* Navbar.swift */,
+				8AEE1CFA20AA5AB00029DCCC /* NewMessageNotifier.swift */,
 			);
 			path = matemeup;
 			sourceTree = "<group>";
@@ -376,7 +421,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = MateMeUp;
 				TargetAttributes = {
 					8A9F4E202062FF2100810D61 = {
@@ -491,11 +536,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-matemeup/Pods-matemeup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
@@ -511,6 +558,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1133D1208D32A5009AF8F6 /* Scroller.swift in Sources */,
+				8A08BBC9209DF0F30097451D /* Constants.swift in Sources */,
+				8AEE1CF720AA0A770029DCCC /* NavigationController.swift in Sources */,
 				8AF6C965206A17330069DF5C /* AvatarRemoteImageLoader.swift in Sources */,
 				8AB52FBE2086740E004EA404 /* WebSocket.swift in Sources */,
 				8AE9C7C2206A3C5D001A970F /* APIRequest.swift in Sources */,
@@ -519,26 +569,38 @@
 				8A6CCAFC2089786E00FAE47C /* AChatListController.swift in Sources */,
 				8A4A6708206E0866006B6646 /* ConnectedUser.swift in Sources */,
 				8AA42003206771D3000E8F01 /* MainController.swift in Sources */,
+				8A13328D209F5FB400630181 /* PendingCollectionController.swift in Sources */,
+				8A504D7C208C1B4F00EC0087 /* User.swift in Sources */,
 				8AA41FFB20672550000E8F01 /* Request.swift in Sources */,
 				8A0CEF07206B46F800ACA8B7 /* RegisterController.swift in Sources */,
 				8AE9C7C4206A3FFD001A970F /* ImageRequest.swift in Sources */,
-				8AA9FB6A2068666200975DD0 /* ChatController.swift in Sources */,
+				8AA9FB6A2068666200975DD0 /* ChatListController.swift in Sources */,
+				8A504D7A208BFC6500EC0087 /* ChatController.swift in Sources */,
 				8AC42692206B737300ECB391 /* ForgotPasswordController.swift in Sources */,
+				8AEE1CF320A9FF330029DCCC /* Style.swift in Sources */,
 				8AA41FFD206752D1000E8F01 /* Callback.swift in Sources */,
+				8AEE1CF920AA2EDF0029DCCC /* Navbar.swift in Sources */,
 				8AC42694206B7D2A00ECB391 /* Validator.swift in Sources */,
 				8AA9FB6C206866B500975DD0 /* ProfileController.swift in Sources */,
 				8A58A1FB2070777200C0E7A2 /* Getter.swift in Sources */,
 				8AB52FBC20866FA1004EA404 /* LayoutUIViewController.swift in Sources */,
+				8A1133CD208CD6AE009AF8F6 /* Message.swift in Sources */,
 				8A9F4E252062FF2100810D61 /* AppDelegate.swift in Sources */,
 				8A488DEC2069976300E05C52 /* Navigation.swift in Sources */,
+				8A08BBCF209E6F8E0097451D /* FriendController.swift in Sources */,
 				8A6495A8206CD16C005DBA36 /* LoginController.swift in Sources */,
 				8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */,
+				8A08BBCD209E19370097451D /* ChatRemoteImageLoader.swift in Sources */,
 				8A6CCAF42089068600FAE47C /* MMUWebSocket.swift in Sources */,
+				8AEE1CFB20AA5AB00029DCCC /* NewMessageNotifier.swift in Sources */,
+				8A133291209FDCCD00630181 /* FriendTableController.swift in Sources */,
+				8A588C5B20A24F3800D520BB /* TabBarController.swift in Sources */,
 				8A6CCAFA2089785E00FAE47C /* ChatInvitationController.swift in Sources */,
 				8AC42690206B6C8C00ECB391 /* NavbarLogoCenter.swift in Sources */,
 				8A58A1FD2070800800C0E7A2 /* DateConverter.swift in Sources */,
 				8AA41FFF20676803000E8F01 /* Storage.swift in Sources */,
 				8AA4200120676939000E8F01 /* JWT.swift in Sources */,
+				8A1133CF208CFE37009AF8F6 /* ChatContainerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +669,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -614,6 +677,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -664,6 +728,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -671,6 +736,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -713,6 +779,17 @@
 				);
 				INFOPLIST_FILE = matemeup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift/SocketIO.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = matemeup.matemeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -734,6 +811,17 @@
 				);
 				INFOPLIST_FILE = matemeup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift/SocketIO.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = matemeup.matemeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";

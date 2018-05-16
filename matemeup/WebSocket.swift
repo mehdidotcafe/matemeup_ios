@@ -8,28 +8,66 @@
 
 import SocketIO
 
-//typealias SWebSocket = Starscream.WebSocket
-
-
 class WebSocket {
     private let BASE_URL: String
     private var socket: SocketIOClient? = nil
     private var manager: SocketManager? = nil
     private var isConnected: Bool = false
     private var currentRequests: [String] = []
+    private var cachedListeners: [(String, Callback?, String?, Bool)] = []
     private var cachedRequest: [(String, Any, Callback?)] = []
+    private var customIdList: [String: UUID] = [:]
   
     init(url: String) {
         BASE_URL = url
     }
     
-    func on(message: String, callback: Callback) {
-        socket!.on(message) { data, ack in
-            if (self.currentRequests.contains(message)) {
-                self.currentRequests = self.currentRequests.filter() {$0 != message}
-            }
-            callback.success(data)
+    func off(message: String) {
+        socket?.off(message)
+    }
+    
+    func off(customId: String) {
+        if customIdList[customId] != nil {
+            socket?.off(id: customIdList[customId]!)
         }
+    }
+    
+    func on(message: String, callback: Callback?, customId: String?) {
+        return on(message: message, callback: callback, customId: customId, isOneTime: false)
+    }
+    
+    func on(message: String, callback: Callback?) {
+        return on(message: message, callback: callback, customId: nil, isOneTime: false)
+    }
+    
+    func on(message: String, callback: Callback?, customId: String?, isOneTime: Bool) {
+        if isConnected == true {
+            var tmpId: UUID? = nil
+            let id: UUID = socket!.on(message, callback: { data, ack in
+                if isOneTime == true {
+                    self.socket!.off(id: tmpId!)
+                }
+                if self.currentRequests.contains(message) {
+                    self.currentRequests = self.currentRequests.filter{$0 != message}
+                }
+                if callback != nil {
+                    callback!.success((data as [Any])[0])
+                }
+            })
+            tmpId = id
+            if customId != nil {
+                customIdList[customId!] = id
+            }
+        } else {
+            cachedListeners.append((message, callback, customId, isOneTime))
+        }
+    }
+    
+    func execCachedListeners() {
+        cachedListeners.forEach({ (message, callback, customId, isOneTime) in
+            self.on(message: message, callback: callback, customId: customId, isOneTime: isOneTime)
+        })
+        cachedListeners.removeAll()
     }
     
     func execCachedRequests() {
@@ -41,16 +79,16 @@ class WebSocket {
     
     func emit(message: String, data: Any, callback: Callback?) {
         if !isConnected {
-            print("caching request " + message)
             cachedRequest.append((message, data, callback))
         }
         else {
             if callback != nil {
-                self.on(message: message, callback: callback!)
+                self.on(message: message, callback: callback, customId: nil, isOneTime: true)
             }
             if !currentRequests.contains(message) {
-                currentRequests.append(message)
-                print("emitting request " + message)
+                if (callback != nil) {
+                    currentRequests.append(message)
+                }
                 socket!.emit(message, with: [data])
             }
         }
@@ -62,8 +100,8 @@ class WebSocket {
         
         socket!.on(clientEvent: .connect) {data, ack in
             self.isConnected = true
+            self.execCachedListeners()
             self.execCachedRequests()
-            print("==== socket connected ====")
         }
         
         socket!.on(clientEvent: .disconnect) {data, ack in

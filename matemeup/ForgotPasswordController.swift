@@ -24,12 +24,9 @@ class ForgotPasswordController: UIViewController {
     
     @IBAction func sendMail(_ sender: Any) {
         let email: String = emailInput.text!
-        
-        print("ä")
+
         if (Validator.isEmail(email)) {
-            print("b")
             APIRequest.getInstance().send(route: "recover", method: "POST", body: ["email": email], callback: Callback(success: { (data) in
-                print("c")
                 Navigation.goTo(segue: "successForgotPasswordSegue", view: self)
             }, fail: {(error) in print(error)}))
         }

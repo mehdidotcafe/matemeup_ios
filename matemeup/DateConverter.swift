@@ -9,11 +9,32 @@
 import Foundation
 
 class DateConverter {
+    static func getFromStringUS(_ date: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        return dateFormatter.date(from: date)
+    }
+    
     static func getFromString(_ date: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-mm-yyyy" //Your date format
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
-        return dateFormatter.date(from: date) //according to date format your date string
+        dateFormatter.dateFormat = "dd-mm-yyyy"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        return dateFormatter.date(from: date)
+    }
+    
+    static func toString(_ date: Date) -> String? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter.string(from: date)
+    }
+    
+    static func toStringUS(_ date: Date) -> String? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.string(from: date)
     }
     
     static func getYear(_ date: Date) -> Int {

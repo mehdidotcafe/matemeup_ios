@@ -3,4 +3,5 @@ target 'matemeup' do
     pod 'GooglePlaces'
     use_frameworks!
     pod 'Socket.IO-Client-Swift', '~> 13.1.0'
+    pod 'ImagePicker'
 end

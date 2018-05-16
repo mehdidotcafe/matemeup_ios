@@ -12,15 +12,35 @@ class ChatNormalCell : UITableViewCell {
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userAvatar: UIImageView!
+    @IBOutlet weak var notificationCount: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        //userAvatar.image = nil
+    }
+    
 }
 
 class ChatNormalController : AChatListController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchList(requestUrl: "global.chat.user.normal.get", callback: { cell, user in
             let cncell = cell as! ChatNormalCell
-            
-            cncell.userName.text = user
+            let count = user["unseen_messages_count"] as! Int
+ 
+            cncell.userName.text = user["name"] as? String
+            Style.border(view: cncell.userAvatar)
+            if count > 0 {
+                Style.rounded(view: cncell.notificationCount)
+                cncell.notificationCount.text = String(count)
+                cncell.notificationCount.isHidden = false
+            } else {
+                cncell.notificationCount.isHidden = true
+            }
+            Style.border(view: cncell.notificationCount)
+            AvatarRemoteImageLoader.load(view: cncell.userAvatar, path: user["avatar"] as! String)
         })
+        setNewMessageListener()
     }
 }

@@ -10,13 +10,22 @@ import UIKit
 public class RemoteImageLoader {
     
     static func displayImage(_ view: UIImageView, _ data: Any) {
+        print(data)
         DispatchQueue.main.async {
             view.image = UIImage(data: data as! Data)
+             //view.sizeToFit()
         }
+       
     }
     
     static func displayError(_ error: String) {
         print("Error loading image")
+    }
+    
+    static func empty(view: UIImageView) {
+        DispatchQueue.main.async {
+            view.image = nil
+        }
     }
     
     static func load(view: UIImageView, base: String, path: String) {

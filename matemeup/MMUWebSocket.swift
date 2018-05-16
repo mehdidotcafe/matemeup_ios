@@ -18,17 +18,13 @@ class MMUWebSocket : WebSocket {
 
     public static func getInstance() -> MMUWebSocket {
         if instance == nil {
-        print("creating new instance")
          instance = MMUWebSocket()
         }
         return instance!
     }
     
     func execCachedRequestsEhlo() {
-        print("executing cached requests ehlo")
-        print(Unmanaged.passUnretained(self).toOpaque())
         cachedEmits.forEach({ (message, data, callback) in
-            print("one")
             self.emit(message: message, data: data, callback: callback)
         })
         cachedEmits.removeAll()
@@ -36,8 +32,6 @@ class MMUWebSocket : WebSocket {
     
     override func emit(message: String, data: Any, callback: Callback?) {
         if (!hasReceiveEhlo && message != EHLO) {
-            print("ehlo caching request "  + message)
-            print(Unmanaged.passUnretained(self).toOpaque())
             cachedEmits.append((message, data, callback))
         }
         else {
@@ -62,7 +56,7 @@ class MMUWebSocket : WebSocket {
                     self.emit(message: self.EHLO, data: token, callback: Callback(
                         success: { data in
                             if (self.hasReceiveEhlo == false) {
-                                if ((data as! Array<Int>)[0] == 1) {
+                                if data as! Int == 1 {
                                     self.hasReceiveEhlo = true
                                     self.execCachedRequestsEhlo()
                                 }

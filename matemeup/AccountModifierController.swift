@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import GooglePlaces
+import GooglePlaces
 
 class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -52,26 +52,23 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
         currentGenderRow = row;
     }
     
+    func setGenderValue(container: UITextField, gender: Int) {
+        container.text = gender == 0 ? "Man" : "Woman"
+    }
     
     @objc func dateChanged(_ sender: UIDatePicker) {
         let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = componenets.day, let month = componenets.month, let year = componenets.year {
-            print("\(day) \(month) \(year)")
         }
     }
     
     @objc func donedatePicker(){
-        let formatter = DateFormatter()
-        formatter.locale = Locale.current
-        formatter.dateFormat = "dd/MM/yyyy"
-        _birthdateInput?.text = formatter.string(from: birthdatePicker!.date)
+        _birthdateInput?.text = DateConverter.toString(birthdatePicker!.date)
         currentBirthdate = birthdatePicker!.date
-        //dismiss date picker dialog
         self.view.endEditing(true)
     }
     
     @objc func cancelDatePicker(){
-        //cancel button dismiss datepicker dialog
         self.view.endEditing(true)
     }
     
@@ -81,7 +78,6 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
         
         toolbar.sizeToFit()
         
-        //done button & cancel button
         let doneButton = UIBarButtonItem(title: "Confirmer", style: .plain, target: self, action: confirm)
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Annuler", style: .plain, target: self, action: cancel)
@@ -129,7 +125,6 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @objc func onOpenChatChange(ocswitch: UISwitch) {
-        print("switch change")
         currentOpenChat = ocswitch.isOn
     }
     
@@ -161,7 +156,7 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
         let validator = field[1] as? (String) -> Bool
         let isNullable = field[2] as? Bool
         
-        if isNullable == true && value == nil {
+        if isNullable == true && (value == nil || value == "") {
             return true
         }
         else if (value == nil) {
@@ -173,14 +168,58 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
         return true
     }
     
-    func validateFields(_ fields: Dictionary<String, Array<Any?>>) -> Bool {
+    func validateFields(_ fields: Dictionary<String, Array<Any?>>) -> [String: String]? {
+        var ret: [String: String] = [:]
         for (key, value) in fields {
-            if (validateField(value) == false) {
-                print("FAIL")
-                print(key, value)
-                return false
+            if validateField(value) == false {
+                return nil
+            } else {
+                ret[key] = value[0] as! String
             }
         }
-        return true
+        return ret
     }
+    
+    func displayLocationView() {
+        let autocompleteController = GMSAutocompleteViewController()
+        let filter = GMSAutocompleteFilter()
+        
+        filter.type = .city
+        autocompleteController.delegate = self
+        autocompleteController.autocompleteFilter = filter
+        present(autocompleteController, animated: true, completion: nil)
+    }
+    func onLocationSet(location: String?) {
+        
+    }
+}
+
+extension AccountModifierController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        currentLocation = place.formattedAddress
+        onLocationSet(location: currentLocation)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }

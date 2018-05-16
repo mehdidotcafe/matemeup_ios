@@ -55,7 +55,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let email: String! = emailInput.text
         let password: String! = passwordInput.text
 
-        print(email, password)
         checkLogin(email: email, password: password)
     }
     

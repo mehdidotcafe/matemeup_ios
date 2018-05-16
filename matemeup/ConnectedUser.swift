@@ -63,8 +63,6 @@ class ConnectedUser {
     }
     
     public static func set(_ user: Dictionary<String, Any>) -> ConnectedUser {
-        print("IN SET")
-        print(user)
         return getInstance(user)
     }
 }

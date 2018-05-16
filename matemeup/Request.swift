@@ -47,7 +47,7 @@ class Request {
     }
     
     func initRequest(_ route: String, _ method: String, _ queryString: Dictionary<String, String>, _ body: Dictionary<String, Any>) -> NSMutableURLRequest {
-        print(self.setDefaultUrlParams(route, queryString))
+
         let request = NSMutableURLRequest(url: NSURL(string: self.setDefaultUrlParams(route, queryString))! as URL)
         
         request.httpMethod = method
@@ -68,7 +68,6 @@ class Request {
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             do {
                 let jsonObject = (data == nil) ? [:] : try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
-
                     if (jsonObject!["success"] == nil) {
                         callback.fail(jsonObject!["error"] == nil ? "" : jsonObject!["error"] as! String)
                     }

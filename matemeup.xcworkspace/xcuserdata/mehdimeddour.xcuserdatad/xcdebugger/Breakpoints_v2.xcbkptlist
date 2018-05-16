@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "matemeup/MainController.swift"
-            timestampString = "545694803.07716"
+            filePath = "matemeup/Navbar.swift"
+            timestampString = "548047030.149961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "tryAutoLogin(token:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "logo(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
