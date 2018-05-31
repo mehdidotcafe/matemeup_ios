@@ -11,8 +11,11 @@ import UIKit
 class Scroller {
     static func toBottom(view: UITableView, array: [Any]){
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: array.count-1, section: 0)
-            view.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            if array.count > 0 {
+                let indexPath = IndexPath(row: array.count-1, section: 0)
+                print(view, indexPath)
+                view.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
     var socket: MMUWebSocket = MMUWebSocket.getInstance()
     
     var user: User? = nil
+    var isInvitation: Bool = false
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -30,8 +31,8 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
     
 
    func configSegmentedControl() {
-        segmented.layer.borderColor = UIColor.init(red: 233 / 255, green: 76 / 255, blue: 76 / 255, alpha: 1).cgColor
-        filterInput.backgroundColor = UIColor.init(red: 233 / 255, green: 76 / 255, blue: 76 / 255, alpha: 1)
+        segmented.layer.borderColor = UIColor.init(red: 33 / 255, green: 37 / 255, blue: 41 / 255, alpha: 1).cgColor
+        filterInput.backgroundColor = UIColor.init(red: 33 / 255, green: 37 / 255, blue: 41 / 255, alpha: 1)
         segmented.layer.cornerRadius = 0.0
         segmented.layer.borderWidth = 1.5
         let font = UIFont.systemFont(ofSize: 18)
@@ -70,6 +71,10 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
         self.user = u
     }
     
+    public func setIsInvitation(_ isInvitation: Bool) {
+        self.isInvitation = isInvitation
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
@@ -84,6 +89,7 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
         if segue.identifier == "goToChat" {
             if let toViewController = segue.destination as? ChatContainerController {
                 toViewController.setUser(self.user!)
+                toViewController.setIsInvitation(self.isInvitation)
             }
         }
     }

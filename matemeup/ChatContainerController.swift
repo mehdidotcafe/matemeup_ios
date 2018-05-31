@@ -11,6 +11,7 @@ import ImagePicker
 
 class ChatContainerController : UIViewController, UITextFieldDelegate, ImagePickerDelegate {
     var user: User? = nil
+    var isInvitation: Bool = false
     let socket: MMUWebSocket = MMUWebSocket.getInstance()
     
     @IBOutlet weak var textInput: UITextField!
@@ -92,10 +93,14 @@ class ChatContainerController : UIViewController, UITextFieldDelegate, ImagePick
         self.user = u
     }
     
+    public func setIsInvitation(_ isInvitation: Bool) {
+        self.isInvitation = isInvitation
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chatListEmbed" {
             if let toViewController = segue.destination as? ChatController {
-                toViewController.setUser(self.user!)
+                toViewController.setUser(self.user!); toViewController.setIsInvitation(self.isInvitation)
             }
         }
     }

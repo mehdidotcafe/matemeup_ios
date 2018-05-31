@@ -27,7 +27,7 @@ class Request {
         return ret
     }
     
-    func getFile(route: String, queryString: Dictionary<String, String>, callback: Callback)  {
+    func getFile(route: String, queryString: Dictionary<String, String>, callback: Callback) -> URLSessionDataTask {
         let request: NSMutableURLRequest = self.initRequest(route, "GET", queryString, [:])
         let session = URLSession.shared
         
@@ -43,7 +43,7 @@ class Request {
         })
         
         task.resume()
-        
+        return task
     }
     
     func initRequest(_ route: String, _ method: String, _ queryString: Dictionary<String, String>, _ body: Dictionary<String, Any>) -> NSMutableURLRequest {
@@ -61,7 +61,7 @@ class Request {
     }
     
     
-    func send(route: String, method: String, queryString: Dictionary<String, String>, body: Dictionary<String, Any>, callback: Callback)  {
+    func send(route: String, method: String, queryString: Dictionary<String, String>, body: Dictionary<String, Any>, callback: Callback) -> URLSessionDataTask {
         let request: NSMutableURLRequest = self.initRequest(route, method, queryString, body)
         let session = URLSession.shared
 
@@ -83,7 +83,7 @@ class Request {
         })
         
         task.resume()
-
+        return task
     }
     
 }

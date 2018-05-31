@@ -8,37 +8,9 @@
 
 import UIKit
 
-class FriendTableCell : UITableViewCell {
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var avatar: UIImageView!
-    
+class FriendshipCell: UITableViewCell {
     var user: User? = nil
     var controller: FriendTableController? = nil
-
-    
-    @IBAction func filter(_ sender: Any) {
-        print("CA FILTRE")
-    }
-    
-    @IBAction func goToChat(_ sender: Any) {
-        self.controller?.setUser(user!)
-        Navigation.goTo(segue: "goToChatFromFriend", view: self.controller!)
-    
-    }
-    
-    @IBAction func deleteFriend(_ sender: Any) {
-        let refreshAlert = UIAlertController(title: user!["name"] as? String, message: "Supprimer ?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "NON", style: .default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "OUI", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.controller?.removeUser(self.user!)
-        }))
-        
-        controller?.present(refreshAlert, animated: true, completion: nil)
-    }
     
     func setUser(_ user: User) {
         self.user = user
@@ -50,22 +22,83 @@ class FriendTableCell : UITableViewCell {
     
 }
 
+class PendingTableCell: FriendshipCell {
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    
+    @IBAction func acceptFriend(_ sender: Any) {
+        if self.controller != nil {
+            Alert.ok(controller: self.controller!, title: "L'utilisateur a été accepté", message: "", callback: Callback(
+                success: {data in self.controller.self?.removePendingInList(self.user!)},
+                fail: {data in}
+            ))
+            MMUWebSocket.getInstance().emit(message: "friend.accept", data: ["friendId": self.user!["id"] as! Int], callback: Callback(
+                success: {data in },
+                fail: {data in }
+            ))
+        }
+    }
+    
+    @IBAction func refuseFriend(_ sender: Any) {
+        if self.controller != nil {
+            Alert.yesNo(controller: self.controller!, title: "Refuser " + (user!["name"] as! String) + " ?", message: "", callback: Callback(
+                success: {data in self.controller.self?.removePending(self.user!)},
+                fail: {data in }
+            ))
+        }
+    }
+}
+
+class FriendTableCell : FriendshipCell {
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
+    
+    @IBAction func goToChat(_ sender: Any) {
+        self.controller?.setUser(user!)
+        Navigation.goTo(segue: "goToChatFromFriend", view: self.controller!)
+    
+    }
+    
+    @IBAction func deleteFriend(_ sender: Any) {
+        if self.controller != nil {
+            Alert.yesNo(controller: self.controller!, title: "Supprimer " + (user!["name"] as! String) + " ?", message: "", callback: Callback(
+                success: {data in self.controller.self?.removeFriend(self.user!)},
+                fail: {data in }
+            ))
+        }
+    }
+    
+}
+
 class FriendTableController : UITableViewController {
     typealias ViewSetter = (UICollectionViewCell, User) -> Void
     var friends: [User] = []
+    var pendings: [User] = []
     var selectedUser: User? = nil
     
     func setUser(_ user: User) {
         selectedUser = user
     }
     
-    func removeUser(_ user: User) {
+    func removePendingInList(_ user: User) {
+        self.pendings = self.pendings.filter { pending in pending["id"] as! Int != user["id"] as! Int }
+        self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+    }
+    
+    func removePending(_ user: User) {
+        removePendingInList(user)
         MMUWebSocket.getInstance().emit(message: "friend.refuse", data: [
             "friendId": user["id"]], callback: Callback(
-                success: {data in
-                    self.friends = self.friends.filter { friend in friend["id"] as! Int != user["id"] as! Int }
-                    self.tableView.reloadData()
-            }, fail: {data in}
+                success: {data in}, fail: {data in}
+        ))
+    }
+    
+    func removeFriend(_ user: User) {
+        self.friends = self.friends.filter { friend in friend["id"] as! Int != user["id"] as! Int }
+        self.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
+        MMUWebSocket.getInstance().emit(message: "friend.refuse", data: [
+            "friendId": user["id"]], callback: Callback(
+                success: {data in}, fail: {data in}
         ))
     }
     
@@ -80,29 +113,46 @@ class FriendTableController : UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "Vos demandes d'ami" : "Vos amis"
     }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        var cell : UITableViewCell? = nil
-//
-//        cell = tableView.dequeueReusableCell(withIdentifier: indexPath.section == 1 ? "friendCell" : "pendingCell", for: indexPath)
-//        let ccell = cell as! FriendTableCell
-//            let friend = friends[indexPath.row]
-//        
-//            ccell.setUser(friend)
-//            ccell.setController(self)
-//            Style.border(view: ccell.avatar)
-//            AvatarRemoteImageLoader.load(view: ccell.avatar, path: friend["avatar"] as! String)
-//            ccell.name.text = friend["name"] as? String
-//        print("JE RET UNE CELL")
-//        return cell!
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? pendings.count : friends.count
+    }
     
-    func fetchList(requestUrl: String, callback: @escaping ViewSetter) {
-        MMUWebSocket.getInstance().emit(message: requestUrl, data: [:], callback: Callback(
+    func fillPendingCell(_ cell: PendingTableCell, _ pending: User) -> PendingTableCell {
+        cell.setUser(pending)
+        cell.setController(self)
+        Style.border(view: cell.avatar)
+        AvatarRemoteImageLoader.load(view: cell.avatar, path: pending["avatar"] as! String)
+        cell.name.text = pending["name"] as? String
+        
+        return cell
+    }
+    
+    func fillFriendCell(_ cell: FriendTableCell, _ friend: User) -> FriendTableCell {
+        cell.setUser(friend)
+        cell.setController(self)
+        Style.border(view: cell.avatar)
+        AvatarRemoteImageLoader.load(view: cell.avatar, path: friend["avatar"] as! String)
+        cell.name.text = friend["name"] as? String
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell : UITableViewCell? = nil
+
+        cell = tableView.dequeueReusableCell(withIdentifier: indexPath.section == 0 ? "pendingCell" : "friendCell", for: indexPath)
+        return indexPath.section == 0 ? fillPendingCell(cell as! PendingTableCell, pendings[indexPath.row]) : fillFriendCell(cell as! FriendTableCell, friends[indexPath.row])
+    }
+    
+    func fetchList(requestFriendUrl: String, requestPendingUrl: String, callback: @escaping ViewSetter) {
+        let socket: MMUWebSocket = MMUWebSocket.getInstance()
+        
+        socket.emit(message: requestFriendUrl, data: [:], callback: Callback(
             success: { data in
                 let response = data as! [Any]
                 
@@ -113,11 +163,57 @@ class FriendTableController : UITableViewController {
                 self.tableView!.reloadData()
         },
             fail: {data in print("FAIL GETTING ACCEPTEDS")}))
+        
+        socket.emit(message: requestPendingUrl, data: [:], callback: Callback(
+            success: { data in
+                let response = data as! [Any]
+                
+                response.forEach({ userRaw in
+                    let user = userRaw as! [String: Any]
+                    self.pendings.append(["name": user["name"] as! String, "avatar": user["avatar"] as! String, "id": user["id"] as! Int])
+                })
+                self.tableView!.reloadData()
+        },
+            fail: {data in print("FAIL GETTING PENDINGS")}))
+    }
+    
+    func addNewPending(_ user: User) {
+        pendings.append(user)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: pendings.count - 1, section: 0)], with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    func addNewFriend(_ user: User) {
+        friends.append(user)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: friends.count - 1, section: 1)], with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    func setListeners() {
+        let socket: MMUWebSocket = MMUWebSocket.getInstance()
+        
+        socket.on(message: "friend.add.new", callback: Callback(
+            success: {data in
+               self.addNewPending(data as! User)
+        },
+            fail: {data in print("fail")}
+        ))
+        
+        socket.on(message: "friend.accept.new", callback: Callback(
+            success: {data in
+                print("IN FRIEND ACCEPT NEW")
+                self.addNewFriend(data as! User)
+        },
+            fail: {data in print("fail")}
+        ))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchList(requestUrl: "friend.accepted.get", callback: {view, user in })
+        fetchList(requestFriendUrl: "friend.accepted.get", requestPendingUrl: "friend.pending.get", callback: {view, user in })
+        setListeners()
     }
     
 }

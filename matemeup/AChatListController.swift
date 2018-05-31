@@ -14,7 +14,7 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
     var filteredUsersIdx: [Int] = []
     var setter: ViewSetter? = nil
     var pattern: String = ""
-    var isFirstLoad: Bool = true
+    var isInvitation: Bool = false
     
     func getUserFromId(_ id: Int) -> User {
         return originUsers[getOriginUserIndexFromId(id)]
@@ -48,23 +48,69 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
     }
     
     func incrUserUseenMessageCount(_ userId: Int) {
-        let index = getFilteredUserIndexFromId(userId)
-
-        if index != -1 {
-            originUsers[index]["unseen_messages_count"] = (originUsers[index]["unseen_messages_count"] as! Int) + 1
+        let fIndex = getFilteredUserIndexFromId(userId)
+        let oIndex = getOriginUserIndexFromId(userId)
+	
+        if oIndex != -1 {
+            originUsers[oIndex]["unseen_messages_count"] = (originUsers[oIndex]["unseen_messages_count"] as! Int) + 1
         }
-        //let cell = self.tableView.cellForRow(at: IndexPath(item: index, section: 0)) as! ChatNormalCell
+
+        if fIndex != -1 {
+            self.tableView.reloadRows(at: [IndexPath(item: fIndex, section: 0)], with: .none)
+        }
+    }
+    
+    func deleteUserFromList(_ userId: Int) {
+        originUsers = originUsers.filter{$0["id"] as! Int != userId}
+        filterFromPattern(pattern)
         
-        //cell.textLabel?.text = String(originUsers[index]["unseen_messages_count"] as! Int)
-        self.tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .none)
+    }
+    
+    func appendOriginUser(_ user: User) {
+        var nuser = user
+        
+        if nuser["unseen_messages_count"] == nil {
+            nuser["unseen_messages_count"] = 0
+        }
+        originUsers.append(nuser)
     }
     
     func onNewMessage(_ data: Any) {
         let dataArray = data as! [String: Any]
         let _: NewMessageNotifier = dataArray["instance"] as! NewMessageNotifier
         let user: User = dataArray["user"] as! User
+        let userId = user["id"] as! Int
+        let message: Message = dataArray["lastMessage"] as! Message
+        let msgIsInvatation = message["isInvitation"] as! Int
+ 
+        if message["isUser"] as! Int == 0 {
+            if (msgIsInvatation == 1) != isInvitation {
+                deleteUserFromList(userId)
+            } else {
+                if getOriginUserIndexFromId(userId) == -1 {
+                    appendOriginUser(user)
+                    filterFromPattern(pattern)
+                }
+                incrUserUseenMessageCount(userId)
+            }
+        }
+    }
+    
+    func onNewConnectedMessage(_ data: Any) {
+        let dataArray = data as! [String: Any]
+        let _: NewMessageNotifier = dataArray["instance"] as! NewMessageNotifier
+        let user: User = dataArray["user"] as! User
+        let userId = user["id"] as! Int
+        let message: Message = dataArray["lastMessage"] as! Message
+        let msgIsInvatation = message["isInvitation"] as! Int
         
-        incrUserUseenMessageCount(user["id"] as! Int)
+        print("DANS ON NEW CONNECTED MESSAGE")
+        if (msgIsInvatation == 1) != isInvitation {
+         deleteUserFromList(userId)
+        } else if getOriginUserIndexFromId(userId) == -1 {
+            appendOriginUser(user)
+            filterFromPattern(pattern)            
+        }
     }
     
     func onDelUser(_ data: Any) {
@@ -74,10 +120,10 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
         let oIndex = getOriginUserIndexFromId(userId)
         let fIndex = getFilteredUserIndexFromId(userId)
         
-        originUsers[oIndex]["unseen_messages_count"] = 0
-        self.tableView.reloadRows(at: [IndexPath(item: fIndex, section: 0)], with: .none)
-        print("ONDELUSER")
-        print(data)
+        if oIndex != -1 {
+            originUsers[oIndex]["unseen_messages_count"] = 0
+            self.tableView.reloadRows(at: [IndexPath(item: fIndex, section: 0)], with: .none)
+        }	
     }
     
     func setNewMessageListener() {
@@ -87,6 +133,10 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
             success: {data in self.onNewMessage(data)},
             fail: {data in print("FAIL")}
         ))
+        notifier.on(message: "newConnectedMessage", callback: Callback(
+            success: {data in self.onNewConnectedMessage(data)},
+            fail: {data in print("FAIL")}
+        ))
         notifier.on(message: "delUser", callback: Callback(
             success: {data in self.onDelUser(data)},
             fail: {data in print("FAIL")}
@@ -94,7 +144,13 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        //print("in number of sections")
+        //if originUsers.count > 0 {
+            return 1
+        //} else {
+        //    TableViewHelper.EmptyMessage(message: "Vous n'avez pas de discussions.", viewController: self)
+        //    return 0
+        //}
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,6 +168,7 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
         let user = originUsers[filteredUsersIdx[indexPath.row]]
         
         (self.parent as! ChatListController).setUser(user)
+        (self.parent as! ChatListController).setIsInvitation(isInvitation)
         Navigation.goTo(segue: "goToChat", view: self.parent!)
     }
     

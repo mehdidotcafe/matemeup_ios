@@ -7,7 +7,10 @@
 //
 
 class Constants {
-    //static let avatarUrl: String = "https://www.matemeup.com/img/avatars"
-    static let avatarUrl: String = "http://192.168.1.21:8000/img/avatars"
-    static let chatImageUrl: String = "http://192.168.1.21:8000"
+    private static let ip: String = "https://www.matemeup.com"
+    static let avatarUrl: String = ip + "/img/avatars"
+    static let chatImageUrl: String = ip + ""
+    static let apiUrl: String = ip + "/api/"
+    static let wsUrl: String = ip + ":8443"
 }
+

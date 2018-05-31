@@ -9,7 +9,7 @@
 import Foundation
 
 class MMUWebSocket : WebSocket {
-    private let URL: String = "http://192.168.1.21:8011"
+    private let URL: String = Constants.wsUrl
     private let EHLO: String = "ehlo"
     private static var instance: MMUWebSocket? = nil
     private var isInit: Bool

@@ -9,7 +9,7 @@
 import Foundation
 
 class APIRequest: Request {
-    private var BASE_URL: String = "http://192.168.1.21:8000/api/"
+    private var BASE_URL: String = Constants.apiUrl
     private static var instance: APIRequest?
     private var queryStrings: Dictionary<String, String> = [:]
     

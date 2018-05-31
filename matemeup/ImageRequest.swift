@@ -24,12 +24,12 @@ class ImageRequest: Request {
         queryStrings[key] = value
     }
     
-    func getFile(route: String, method: String, body: Dictionary<String, Any>, callback: Callback) {
+    func getFile(route: String, method: String, body: Dictionary<String, Any>, callback: Callback) -> URLSessionDataTask {
         return super.getFile(route: route, queryString: self.queryStrings, callback: callback)
     }
     
-    func send(route: String, method: String, body: Dictionary<String, Any>, callback: Callback)  {
-        super.send(route: BASE_URL + route, method: method, queryString: self.queryStrings, body: body, callback: callback)
+    func send(route: String, method: String, body: Dictionary<String, Any>, callback: Callback) -> URLSessionDataTask {
+        return super.send(route: BASE_URL + route, method: method, queryString: self.queryStrings, body: body, callback: callback)
     }
     
 }

@@ -11,8 +11,12 @@ import UIKit
 class ChatRemoteImageLoader : RemoteImageLoader {
     private static let URL = Constants.chatImageUrl
     
-    static func load(view: UIImageView, path: String) {
-        return super.load(view: view, base: URL, path: path)
+    static func load(view: UIImageView, path: String, callback: Callback) -> URLSessionDataTask? {
+        return super.load(view: view, base: URL, path: path, callback: callback)
+    }
+    
+    static func load(view: UIImageView, path: String) -> URLSessionDataTask? {
+        return super.load(view: view, base: URL, path: path, callback: nil)
     }
     
 }

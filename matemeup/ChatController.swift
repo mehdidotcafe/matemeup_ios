@@ -10,11 +10,25 @@ import UIKit
 
 class MessageCell : UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var container: UIView!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var superContainer: UIStackView!
     @IBOutlet weak var messageImg: UIImageView!
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var stackContainer: UIStackView!
     
+    var currentRequest: URLSessionDataTask? = nil
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        if currentRequest != nil {
+            currentRequest?.cancel()
+            currentRequest = nil
+        }
+        label.text = ""
+        label.isHidden = true
+//        messageImg.isHidden = true
+//        messageImg.image = nil
+    }
 }
 
 class ChatController : UITableViewController {
@@ -23,10 +37,10 @@ class ChatController : UITableViewController {
     let chunkSize: Int = 10
     let ceil: Float = 30
     var chunkIndex: Int = 0
-    var getUrl: String = "global.chat.user.normal.history"
     var messages: [Message] = []
     var isLoading: Bool = false
     var hasLoadAllHistory: Bool = false
+    var isInvitation: Bool = false
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (100 * Float(scrollView.contentOffset.y) / Float(scrollView.contentSize.height)) <= ceil && isLoading == false && scrollView.panGestureRecognizer.translation(in: scrollView.superview).y > 0 {
@@ -48,24 +62,29 @@ class ChatController : UITableViewController {
         return messages.count
     }
     
+    func getUrl() -> String {
+        return isInvitation == false ? "global.chat.user.normal.history" : "global.chat.user.invitation.history"
+    }
+    
     func displayCellText(_ cell: MessageCell, _ message: Message) {
         cell.label.text = message["message"] as? String
         cell.label.isHidden = false
-        cell.messageImg.isHidden = true
-
-        ChatRemoteImageLoader.empty(view: cell.messageImg)
-        //DispatchQueue.main.async {
-        //    cell.messageImg.sizeToFit()
-        //    cell.label.sizeToFit()
-        //}
     }
     
     func displayCellImage(_ cell: MessageCell, _ message: Message) {
-        ChatRemoteImageLoader.load(view: cell.messageImg, path: message["message"] as! String)
-        cell.label.isHidden = true
-        cell.label.text = ""
-        cell.messageImg.isHidden = false
-        //cell.messageImg.sizeToFit()
+        /*cell.messageImg.isHidden = false
+        cell.label.isHidden = false
+        cell.currentRequest = ChatRemoteImageLoader.load(view: cell.messageImg, path: message["message"] as! String, callback: Callback(
+            success: {data in
+                print("foooo")
+                //cell.imageView?.contentMode = .scaleAspectFill
+                //cell.container.contentMode = .scaleToFill
+                //cell.superContainer.contentMode = .scaleToFill
+                //cell.label.sizeToFit()
+                //cell.viewContainer.sizeToFit()
+            },
+            fail: {data in}
+        ))*/
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,24 +94,22 @@ class ChatController : UITableViewController {
 
         cell.selectionStyle = .none
         if user!["id"] as! Int == message["senderUserId"] as! Int {
-            cell.superContainer.semanticContentAttribute = .forceRightToLeft
+            cell.stackContainer.semanticContentAttribute = .forceRightToLeft
+            cell.container.semanticContentAttribute = .forceRightToLeft
             cell.label.semanticContentAttribute = .forceRightToLeft
         }
         else {
-            cell.superContainer.semanticContentAttribute = .forceLeftToRight
+            cell.stackContainer.semanticContentAttribute = .forceLeftToRight
+            cell.container.semanticContentAttribute = .forceLeftToRight
             cell.label.semanticContentAttribute = .forceLeftToRight
         }
-        cell.container.layer.masksToBounds = true
-        cell.container.layer.cornerRadius = 5
+        Style.border(view: cell.label)
         if (message["type"] as! Int == 1) {
             displayCellText(cell, message)
         } else if (message["type"] as! Int == 2) {
             displayCellImage(cell, message)
         }
-        
-        //DispatchQueue.main.async {
-        //    cell.container.sizeToFit()
-        //}
+    
         if prevMessage == nil || message["senderUserId"] as! Int != prevMessage!["senderUserId"] as! Int {
             cell.avatar.isHidden = false
             Style.border(view: cell.avatar)
@@ -106,6 +123,10 @@ class ChatController : UITableViewController {
     
     public func setUser(_ u: User) {
         self.user = u
+    }
+    
+    public func setIsInvitation(_ isInvitation: Bool) {
+        self.isInvitation = isInvitation
     }
     
     func displayChunk(needScroll: Bool, data: Any) {
@@ -127,7 +148,7 @@ class ChatController : UITableViewController {
     func getChunk(callback: Callback?) {
         isLoading = true
         if hasLoadAllHistory == false {
-            socket.emit(message: getUrl, data: [
+            socket.emit(message: getUrl(), data: [
                 "userId": user!["id"],
                 "chunkSize": chunkSize,
                 "index": chunkIndex
@@ -149,16 +170,20 @@ class ChatController : UITableViewController {
     }
     
     func setListeners() {
-        socket.on(message: "global.chat.new", callback: Callback(
+        NewMessageNotifier.getInstance().on(message: "newConnectedMessage", callback: Callback(
             success: {data in
+                let dataArray = data as! [String: Any]
+                let lastMessage = dataArray["lastMessage"] as! Message
+
                 self.socket.emit(message: "global.chat.message.seen", data: ["userId": self.user!["id"] as! Int], callback: nil)
-                self.messages.append(data as! Message)
+                self.messages.append(lastMessage)
                 self.tableView.reloadData()
                 Scroller.toBottom(view: self.tableView, array: self.messages)
             },
             fail: {data in
                 print("ERROR REQUEST CHATCONTROLLER.CONFIGLISTENERS")
-        }), customId: "chatNewListenerChatController")
+            }
+        ))
     }
     
     override func viewWillDisappear(_ animated: Bool) {

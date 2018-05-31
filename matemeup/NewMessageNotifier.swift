@@ -12,18 +12,20 @@ class NewMessageNotifier {
     private static var instance: NewMessageNotifier? = nil
     private var currentUserId: Int
     private var socket: MMUWebSocket
-    private var newUserMessageListeners: [Callback]
-    private var newUserListeners: [Callback]
-    private var newConnectedMessageListeners: [Callback]
-    private var delUserListeners: [Callback]
+    private var newUserMessageListeners: [Int: Callback]
+    private var newUserListeners: [Int: Callback]
+    private var newConnectedMessageListeners: [Int: Callback]
+    private var delUserListeners: [Int: Callback]
     private var userMessages: [Int: (User, Int, Message?)]
+    private var index: Int
     
     private init() {
+        index = 0
         currentUserId = -1
-        newUserMessageListeners = []
-        newUserListeners = []
-        newConnectedMessageListeners = []
-        delUserListeners = []
+        newUserMessageListeners = [:]
+        newUserListeners = [:]
+        newConnectedMessageListeners = [:]
+        delUserListeners = [:]
         userMessages = [:]
         socket = MMUWebSocket.getInstance()
         socket.on(message: "global.chat.new", callback: Callback(
@@ -33,40 +35,45 @@ class NewMessageNotifier {
     }
     
     private func notifyNewUser(_ info: (User, Int, Message?)) {
-        for listener in newUserListeners {
+        for (_, listener) in newUserListeners {
             listener.success(["user": info.0, "count": info.1, "lastMessage": info.2 as Any, "instance": self])
         }
     }
     
     private func notifyNewUserMessage(_ info: (User, Int, Message?)) {
-        for listener in newUserMessageListeners {
+        for (_, listener) in newUserMessageListeners {
+            print("===")
+            print(info)
             listener.success(["user": info.0, "count": info.1, "lastMessage": info.2 as Any, "instance": self])
         }
     }
     
     private func notifyNewConnectedMessage(_ info: (User, Int, Message?)) {
-        for listener in newConnectedMessageListeners {
+        for (_, listener) in newConnectedMessageListeners {
             listener.success(["user": info.0, "count": info.1, "lastMessage": info.2 as Any, "instance": self])
         }
     }
     
     private func notifyDelUser(_ info: (User, Int, Message?)) {
-        for listener in delUserListeners {
+        for (_, listener) in delUserListeners {
             listener.success(["user": info.0, "count": info.1, "lastMessage": info.2 as Any, "instance": self])
         }
     }
     
     private func onNewMessage(_ data: Any) {
         let message = data as! Message
-        let userId = message["senderUserId"] as! Int
+        let userId = (message["isUser"] as! Int == 1) ? message["receiverUserId"] as! Int : message["senderUserId"] as! Int
+        let user = (message["isUser"] as! Int == 1) ? ["id": userId, "name": message["receiverUserName"]!, "avatar": message["receiverUserAvatar"]!] : ["id": userId, "name": message["senderUserName"]!, "avatar": message["senderUserAvatar"]!]
         
         if userMessages[userId] == nil {
-            userMessages[userId] = (["id": userId, "name": message["senderUserName"]!, "avatar": message["senderUserAvatar"]!], 1, message)
+            userMessages[userId] = (user, 1, message)
             if currentUserId != userId {
                 notifyNewUser(userMessages[userId]!)
             }
+        } else {
+            userMessages[userId]!.1 += 1
+            userMessages[userId]!.2 = message
         }
-        userMessages[userId]!.1 += 1
         if currentUserId != userId {
             notifyNewUserMessage(userMessages[userId]!)
         } else {
@@ -140,15 +147,16 @@ class NewMessageNotifier {
     }
     
     public func on(message: String, callback: Callback) {
+        index += 1
         switch message {
         case "newUserMessage":
-            newUserMessageListeners.append(callback)
+            newUserMessageListeners[index] = callback
         case "newUser":
-            newUserListeners.append(callback)
+            newUserListeners[index] = callback
         case "newConnectedMessage":
-            newConnectedMessageListeners.append(callback)
+            newConnectedMessageListeners[index] = callback
         case "delUser":
-            delUserListeners.append(callback)
+            delUserListeners[index] = callback
         default:
             print("Unknow value")
         }

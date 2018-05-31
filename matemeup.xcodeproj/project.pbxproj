@@ -10,6 +10,7 @@
 		8A08BBC9209DF0F30097451D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08BBC8209DF0F30097451D /* Constants.swift */; };
 		8A08BBCD209E19370097451D /* ChatRemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08BBCC209E19370097451D /* ChatRemoteImageLoader.swift */; };
 		8A08BBCF209E6F8E0097451D /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A08BBCE209E6F8E0097451D /* FriendController.swift */; };
+		8A0C213A20ACFCE00030298D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C213920ACFCE00030298D /* Alert.swift */; };
 		8A0CEF07206B46F800ACA8B7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */; };
 		8A1133CD208CD6AE009AF8F6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1133CC208CD6AE009AF8F6 /* Message.swift */; };
 		8A1133CF208CFE37009AF8F6 /* ChatContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1133CE208CFE37009AF8F6 /* ChatContainerController.swift */; };
@@ -24,6 +25,8 @@
 		8A4A6708206E0866006B6646 /* ConnectedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A6707206E0866006B6646 /* ConnectedUser.swift */; };
 		8A504D7A208BFC6500EC0087 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A504D79208BFC6500EC0087 /* ChatController.swift */; };
 		8A504D7C208C1B4F00EC0087 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A504D7B208C1B4F00EC0087 /* User.swift */; };
+		8A505B9B20BF20610080FE29 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A505B9A20BF20610080FE29 /* PaddingLabel.swift */; };
+		8A508F7720B5BEDF00C99CC9 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A508F7620B5BEDE00C99CC9 /* TableViewHelper.swift */; };
 		8A588C5B20A24F3800D520BB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A588C5A20A24F3800D520BB /* TabBarController.swift */; };
 		8A58A1F92070607800C0E7A2 /* AccountModifierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */; };
 		8A58A1FB2070777200C0E7A2 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58A1FA2070777200C0E7A2 /* Getter.swift */; };
@@ -103,6 +106,7 @@
 		8A08BBC8209DF0F30097451D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8A08BBCC209E19370097451D /* ChatRemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRemoteImageLoader.swift; sourceTree = "<group>"; };
 		8A08BBCE209E6F8E0097451D /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
+		8A0C213920ACFCE00030298D /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8A0CEF06206B46F800ACA8B7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		8A1133CC208CD6AE009AF8F6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8A1133CE208CFE37009AF8F6 /* ChatContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContainerController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		8A4A6707206E0866006B6646 /* ConnectedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedUser.swift; sourceTree = "<group>"; };
 		8A504D79208BFC6500EC0087 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		8A504D7B208C1B4F00EC0087 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8A505B9A20BF20610080FE29 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		8A508F7620B5BEDE00C99CC9 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		8A588C5A20A24F3800D520BB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8A58A1F82070607800C0E7A2 /* AccountModifierController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifierController.swift; sourceTree = "<group>"; };
 		8A58A1FA2070777200C0E7A2 /* Getter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
@@ -324,6 +330,9 @@
 				8AEE1CF620AA0A770029DCCC /* NavigationController.swift */,
 				8AEE1CF820AA2EDF0029DCCC /* Navbar.swift */,
 				8AEE1CFA20AA5AB00029DCCC /* NewMessageNotifier.swift */,
+				8A0C213920ACFCE00030298D /* Alert.swift */,
+				8A508F7620B5BEDE00C99CC9 /* TableViewHelper.swift */,
+				8A505B9A20BF20610080FE29 /* PaddingLabel.swift */,
 			);
 			path = matemeup;
 			sourceTree = "<group>";
@@ -571,8 +580,10 @@
 				8AA42003206771D3000E8F01 /* MainController.swift in Sources */,
 				8A13328D209F5FB400630181 /* PendingCollectionController.swift in Sources */,
 				8A504D7C208C1B4F00EC0087 /* User.swift in Sources */,
+				8A508F7720B5BEDF00C99CC9 /* TableViewHelper.swift in Sources */,
 				8AA41FFB20672550000E8F01 /* Request.swift in Sources */,
 				8A0CEF07206B46F800ACA8B7 /* RegisterController.swift in Sources */,
+				8A505B9B20BF20610080FE29 /* PaddingLabel.swift in Sources */,
 				8AE9C7C4206A3FFD001A970F /* ImageRequest.swift in Sources */,
 				8AA9FB6A2068666200975DD0 /* ChatListController.swift in Sources */,
 				8A504D7A208BFC6500EC0087 /* ChatController.swift in Sources */,
@@ -588,6 +599,7 @@
 				8A9F4E252062FF2100810D61 /* AppDelegate.swift in Sources */,
 				8A488DEC2069976300E05C52 /* Navigation.swift in Sources */,
 				8A08BBCF209E6F8E0097451D /* FriendController.swift in Sources */,
+				8A0C213A20ACFCE00030298D /* Alert.swift in Sources */,
 				8A6495A8206CD16C005DBA36 /* LoginController.swift in Sources */,
 				8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */,
 				8A08BBCD209E19370097451D /* ChatRemoteImageLoader.swift in Sources */,

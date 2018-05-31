@@ -10,7 +10,7 @@ import UIKit
 class AvatarRemoteImageLoader : RemoteImageLoader {
     private static var BASE_URL: String = Constants.avatarUrl
     
-    static func load(view: UIImageView, path: String) {
+    static func load(view: UIImageView, path: String) -> URLSessionDataTask? {
         return super.load(view: view, base: BASE_URL, path: path)
     }
 }
