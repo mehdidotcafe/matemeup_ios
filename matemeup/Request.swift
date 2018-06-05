@@ -22,8 +22,9 @@ class Request {
             else {
              ret += "&"
             }
-            ret += key + "=" + value
+            ret += key.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "=" + value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         }
+        print(ret)
         return ret
     }
     
@@ -37,7 +38,7 @@ class Request {
                         callback.fail("")
                     }
                     else {
-                        callback.success(data)
+                        callback.success(data as Any)
                     }
             }
         })
@@ -50,10 +51,12 @@ class Request {
 
         let request = NSMutableURLRequest(url: NSURL(string: self.setDefaultUrlParams(route, queryString))! as URL)
         
+        //print("REQUEST URL")
+        //print(self.setDefaultUrlParams(route, queryString))
         request.httpMethod = method
-        if (method == "POST") {
+        //if (method == "POST") {
          request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        }
+        //}
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -64,6 +67,7 @@ class Request {
     func send(route: String, method: String, queryString: Dictionary<String, String>, body: Dictionary<String, Any>, callback: Callback) -> URLSessionDataTask {
         let request: NSMutableURLRequest = self.initRequest(route, method, queryString, body)
         let session = URLSession.shared
+
 
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             do {

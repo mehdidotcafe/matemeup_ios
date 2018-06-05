@@ -103,8 +103,7 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
         let userId = user["id"] as! Int
         let message: Message = dataArray["lastMessage"] as! Message
         let msgIsInvatation = message["isInvitation"] as! Int
-        
-        print("DANS ON NEW CONNECTED MESSAGE")
+    
         if (msgIsInvatation == 1) != isInvitation {
          deleteUserFromList(userId)
         } else if getOriginUserIndexFromId(userId) == -1 {
@@ -144,13 +143,7 @@ class AChatListController : UITableViewController, UITextFieldDelegate {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //print("in number of sections")
-        //if originUsers.count > 0 {
-            return 1
-        //} else {
-        //    TableViewHelper.EmptyMessage(message: "Vous n'avez pas de discussions.", viewController: self)
-        //    return 0
-        //}
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

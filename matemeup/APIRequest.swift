@@ -12,7 +12,7 @@ class APIRequest: Request {
     private var BASE_URL: String = Constants.apiUrl
     private static var instance: APIRequest?
     private var queryStrings: Dictionary<String, String> = [:]
-    
+
     static func getInstance() -> APIRequest {
         if (instance == nil) {
             instance = APIRequest()
@@ -23,9 +23,18 @@ class APIRequest: Request {
     func addQueryString(_ key: String, _ value: String) {
         queryStrings[key] = value
     }
+
+    override func send(route: String, method: String, queryString: Dictionary<String, String>, body: Dictionary<String, Any>, callback: Callback) -> URLSessionDataTask {
+        var qs = self.queryStrings
+        
+        queryString.forEach{(k, v) in
+            qs[k] = v
+        }
+        return super.send(route: BASE_URL + route, method: method, queryString: qs, body: body, callback: callback)
+    }
     
-    func send(route: String, method: String, body: Dictionary<String, Any>, callback: Callback)  {
-        super.send(route: BASE_URL + route, method: method, queryString: self.queryStrings, body: body, callback: callback)
+    func send(route: String, method: String, body: Dictionary<String, Any>, callback: Callback) -> URLSessionDataTask {
+        return super.send(route: BASE_URL + route, method: method, queryString: self.queryStrings, body: body, callback: callback)
     }
     
 }

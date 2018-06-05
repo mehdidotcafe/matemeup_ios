@@ -23,6 +23,10 @@ class MMUWebSocket : WebSocket {
         return instance!
     }
     
+    public static func unset() {
+        instance = nil
+    }
+    
     func execCachedRequestsEhlo() {
         cachedEmits.forEach({ (message, data, callback) in
             self.emit(message: message, data: data, callback: callback)

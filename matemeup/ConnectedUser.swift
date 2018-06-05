@@ -62,6 +62,10 @@ class ConnectedUser {
         return ninstance
     }
     
+    public static func unset() {
+        instance = nil
+    }
+    
     public static func set(_ user: Dictionary<String, Any>) -> ConnectedUser {
         return getInstance(user)
     }

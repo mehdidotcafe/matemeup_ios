@@ -28,6 +28,13 @@ class ProfileController : AccountModifierController {
         
     }
     
+    @IBAction func deconnection(_ sender: Any) {
+        ConnectedUser.unset()
+        JWT.unsetAPI()
+        MMUWebSocket.unset()
+        Navigation.goTo(segue: "profilDeconnectionSegue", view: self)
+    }
+    
     override func onLocationSet(location: String?) {
         locationContainer.setTitleColor(.black, for: .normal)
         locationContainer.setTitle(location, for: .normal)
@@ -37,7 +44,7 @@ class ProfileController : AccountModifierController {
         let date = DateConverter.getFromStringUS(user.birthdate)
         
         Style.border(view: avatarContainer)
-        AvatarRemoteImageLoader.load(view: avatarContainer, path: user.avatar)
+        let _ = AvatarRemoteImageLoader.load(view: avatarContainer, path: user.avatar)
         if user.location != "" {
             self.locationContainer.setTitleColor(.black, for: .normal)
         }

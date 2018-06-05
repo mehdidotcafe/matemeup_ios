@@ -107,6 +107,10 @@ class FriendTableController : UITableViewController {
             if let toViewController = segue.destination as? ChatContainerController {
                 toViewController.setUser(self.selectedUser!)
             }
+        } else if segue.identifier == "goToUserListFromFriendList" {
+            if let toViewController = segue.destination as? UserSelectController {
+                toViewController.setCallback(self.sendFriendRequest)
+            }
         }
     }
     
@@ -122,11 +126,24 @@ class FriendTableController : UITableViewController {
         return section == 0 ? pendings.count : friends.count
     }
     
+    func sendFriendRequest(_ user: User) {
+        print(user)
+        MMUWebSocket.getInstance().emit(message: "friend.add", data: ["friendId": user["id"]], callback: Callback(
+            success: {data in
+                if (data as! [String: Any])["state"] as! Int == 0 {
+                    Alert.ok(controller: self, title: "Erreur lors de l'envoi de la demande", message: "Vous êtes ami ou avait déjà envoyé une demande à " + (user["name"] as! String), callback: nil)
+                } else {
+                    Alert.ok(controller: self, title: "Demande envoyée", message: "La demande a été envoyée à " + (user["name"] as! String), callback: nil)}
+            },
+            fail: {data in Alert.ok(controller: self, title: "Erreur lors de l'envoi de la demande", message: "", callback: nil)}
+            ))
+    }
+    
     func fillPendingCell(_ cell: PendingTableCell, _ pending: User) -> PendingTableCell {
         cell.setUser(pending)
         cell.setController(self)
         Style.border(view: cell.avatar)
-        AvatarRemoteImageLoader.load(view: cell.avatar, path: pending["avatar"] as! String)
+        let _ = AvatarRemoteImageLoader.load(view: cell.avatar, path: pending["avatar"] as! String)
         cell.name.text = pending["name"] as? String
         
         return cell
@@ -210,8 +227,27 @@ class FriendTableController : UITableViewController {
         ))
     }
     
+    @objc private func goToUserList() {
+        print("BONJOUR LES AMIGOS")
+        Navigation.goTo(segue: "goToUserListFromFriendList", view: self)
+    }
+    
+    private func setNavbarButton() {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "baseline_add_white_24pt"), for: .normal)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        
+        button.addTarget(self, action: #selector(self.goToUserList), for: .touchUpInside)
+        self.tabBarController?.navigationItem.rightBarButtonItem = barButton
+        print("BONJOUR")
+        print(self.tabBarController)
+        //self.tabBarController?.navigationItem.title = "YOLO LES AMIS"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavbarButton()
         fetchList(requestFriendUrl: "friend.accepted.get", requestPendingUrl: "friend.pending.get", callback: {view, user in })
         setListeners()
     }

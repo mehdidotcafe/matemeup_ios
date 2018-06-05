@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = .white
         
         let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        UIApplication.shared.statusBarStyle = .lightContent
         if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
             statusBar.backgroundColor = UIColor.init(red: 33 / 255, green: 37 / 255, blue: 51 / 255, alpha: 1)
         }

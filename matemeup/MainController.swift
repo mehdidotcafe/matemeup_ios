@@ -14,19 +14,18 @@ class MainController: UIViewController {
     func onAutoLoginSuccess(_ res: Any) {
         let data: Dictionary<String, Any> = res as! Dictionary<String, Any>
         
-        ConnectedUser.set(data["user"] as! Dictionary<String, Any>)
+        let _ = ConnectedUser.set(data["user"] as! Dictionary<String, Any>)
         Navigation.goTo(segue: "JWTSuccessSegue", view: self)
     }
 
     func onAutoLoginFail(_ error: String) {
-        print("fail")
     }
     
     func tryAutoLogin(token: String) {
         let req: APIRequest = APIRequest.getInstance()
         
         req.addQueryString("token", token)
-        req.send(route: "me", method: "GET", body: [:], callback: Callback(
+        let _  = req.send(route: "me", method: "GET", body: [:], callback: Callback(
             success: self.onAutoLoginSuccess,
             fail: self.onAutoLoginFail
         ))

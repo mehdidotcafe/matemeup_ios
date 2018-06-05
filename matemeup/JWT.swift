@@ -11,6 +11,10 @@ import Foundation
 class JWT: Storage {
     private static let MM_KEY: String = "JWT_MM"
     private static let API_KEY: String = "JWT_API"
+    
+    public static func unsetMM() {
+        return self.unset(self.MM_KEY)
+    }
 
     public static func putMM(_ value: String) {
         return self.put(self.MM_KEY, value)
@@ -18,6 +22,10 @@ class JWT: Storage {
     
     public static func getMM() -> String? {
         return self.get(self.MM_KEY)
+    }
+    
+    public static func unsetAPI() {
+        return self.unset(self.API_KEY)
     }
     
     public static func putAPI(_ value: String) {

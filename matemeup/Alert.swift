@@ -9,25 +9,25 @@
 import UIKit
 
 class Alert {
-    public static func ok(controller: UITableViewController, title: String, message: String, callback: Callback) {
+    public static func ok(controller: UIViewController, title: String, message: String, callback: Callback?) {
         let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
 
         refreshAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-            callback.success(action)
+            callback?.success(action)
         }))
         
         controller.present(refreshAlert, animated: true, completion: nil)
     }
     
-    public static func yesNo(controller: UITableViewController, title: String, message: String, callback: Callback) {
+    public static func yesNo(controller: UIViewController, title: String, message: String, callback: Callback?) {
         let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "NON", style: .default, handler: { (action: UIAlertAction!) in
-            callback.fail("")
+            callback?.fail("")
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "OUI", style: .cancel, handler: { (action: UIAlertAction!) in
-            callback.success(action)
+            callback?.success(action)
         }))
         
         controller.present(refreshAlert, animated: true, completion: nil)

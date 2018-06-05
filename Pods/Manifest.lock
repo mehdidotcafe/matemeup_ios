@@ -1,4 +1,5 @@
 PODS:
+  - Floaty (4.0.0)
   - GoogleMaps/Base (2.6.0)
   - GooglePlaces (2.6.0):
     - GoogleMaps/Base (= 2.6.0)
@@ -8,17 +9,19 @@ PODS:
   - Starscream (3.0.4)
 
 DEPENDENCIES:
+  - Floaty (~> 4.0.0)
   - GooglePlaces
   - ImagePicker
   - Socket.IO-Client-Swift (~> 13.1.0)
 
 SPEC CHECKSUMS:
+  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   ImagePicker: 973953c25960fe04729a7082a56194321c6762d2
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
   Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
 
-PODFILE CHECKSUM: 10dff78cbf7af69ef23d515a67a33b42efc8943d
+PODFILE CHECKSUM: 3b0f84828cae5ed179f4b7c9ff316bf29dd541d6
 
 COCOAPODS: 1.4.0

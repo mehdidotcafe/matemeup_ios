@@ -31,6 +31,15 @@ class MessageCell : UITableViewCell {
     }
 }
 
+class ImageCell: UITableViewCell {
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var stackContainer: UIStackView!
+    @IBOutlet weak var pictureContainer: UIView!
+    
+    var currentRequest: URLSessionDataTask? = nil
+}
+
 class ChatController : UITableViewController {
     var user: User? = nil
     let socket: MMUWebSocket = MMUWebSocket.getInstance()
@@ -66,33 +75,13 @@ class ChatController : UITableViewController {
         return isInvitation == false ? "global.chat.user.normal.history" : "global.chat.user.invitation.history"
     }
     
-    func displayCellText(_ cell: MessageCell, _ message: Message) {
+    func displayCellText(_ indexPath: IndexPath, _ message: Message) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messageList", for: indexPath) as! MessageCell
+        let prevMessage = indexPath.row - 1 >= 0 ? messages[indexPath.row - 1] : nil
+        
         cell.label.text = message["message"] as? String
         cell.label.isHidden = false
-    }
-    
-    func displayCellImage(_ cell: MessageCell, _ message: Message) {
-        /*cell.messageImg.isHidden = false
-        cell.label.isHidden = false
-        cell.currentRequest = ChatRemoteImageLoader.load(view: cell.messageImg, path: message["message"] as! String, callback: Callback(
-            success: {data in
-                print("foooo")
-                //cell.imageView?.contentMode = .scaleAspectFill
-                //cell.container.contentMode = .scaleToFill
-                //cell.superContainer.contentMode = .scaleToFill
-                //cell.label.sizeToFit()
-                //cell.viewContainer.sizeToFit()
-            },
-            fail: {data in}
-        ))*/
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messageList", for: indexPath) as! MessageCell
-        let message = messages[indexPath.row]
-        let prevMessage = indexPath.row - 1 >= 0 ? messages[indexPath.row - 1] : nil
-
-        cell.selectionStyle = .none
+        
         if user!["id"] as! Int == message["senderUserId"] as! Int {
             cell.stackContainer.semanticContentAttribute = .forceRightToLeft
             cell.container.semanticContentAttribute = .forceRightToLeft
@@ -104,19 +93,37 @@ class ChatController : UITableViewController {
             cell.label.semanticContentAttribute = .forceLeftToRight
         }
         Style.border(view: cell.label)
-        if (message["type"] as! Int == 1) {
-            displayCellText(cell, message)
-        } else if (message["type"] as! Int == 2) {
-            displayCellImage(cell, message)
-        }
-    
+        
         if prevMessage == nil || message["senderUserId"] as! Int != prevMessage!["senderUserId"] as! Int {
             cell.avatar.isHidden = false
             Style.border(view: cell.avatar)
-            AvatarRemoteImageLoader.load(view: cell.avatar, path: message["senderUserAvatar"] as! String)
+            let _ = AvatarRemoteImageLoader.load(view: cell.avatar, path: message["senderUserAvatar"] as! String)
         } else {
             cell.avatar.isHidden = true
         }
+        return cell
+    }
+    
+    func displayCellImage(_ indexPath: IndexPath, _ message: Message) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageList", for: indexPath) as! ImageCell
+        
+        Style.border(view: cell.pictureContainer)
+        cell.currentRequest = ChatRemoteImageLoader.load(view: cell.picture, path: message["message"] as! String, callback: Callback(
+            success: {data in
+            },
+            fail: {data in}
+        ))
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
+        
+        let cell = message["type"] as! Int == 1  ? displayCellText(indexPath, message) : displayCellImage(indexPath, message)
+        
+        cell.selectionStyle = .none
+
         return cell
     }
     

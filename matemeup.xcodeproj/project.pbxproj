@@ -65,6 +65,7 @@
 		8AA42003206771D3000E8F01 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA42002206771D3000E8F01 /* MainController.swift */; };
 		8AA9FB6A2068666200975DD0 /* ChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB692068666200975DD0 /* ChatListController.swift */; };
 		8AA9FB6C206866B500975DD0 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA9FB6B206866B500975DD0 /* ProfileController.swift */; };
+		8AB201C020C42F7900911A7F /* UserSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB201BF20C42F7900911A7F /* UserSelectController.swift */; };
 		8AB52FBC20866FA1004EA404 /* LayoutUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */; };
 		8AB52FBE2086740E004EA404 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB52FBD2086740E004EA404 /* WebSocket.swift */; };
 		8AC42690206B6C8C00ECB391 /* NavbarLogoCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4268F206B6C8C00ECB391 /* NavbarLogoCenter.swift */; };
@@ -167,6 +168,7 @@
 		8AA42002206771D3000E8F01 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		8AA9FB692068666200975DD0 /* ChatListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListController.swift; sourceTree = "<group>"; };
 		8AA9FB6B206866B500975DD0 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		8AB201BF20C42F7900911A7F /* UserSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectController.swift; sourceTree = "<group>"; };
 		8AB52FBB20866FA1004EA404 /* LayoutUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUIViewController.swift; sourceTree = "<group>"; };
 		8AB52FBD2086740E004EA404 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		8AC4268F206B6C8C00ECB391 /* NavbarLogoCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarLogoCenter.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				8A0C213920ACFCE00030298D /* Alert.swift */,
 				8A508F7620B5BEDE00C99CC9 /* TableViewHelper.swift */,
 				8A505B9A20BF20610080FE29 /* PaddingLabel.swift */,
+				8AB201BF20C42F7900911A7F /* UserSelectController.swift */,
 			);
 			path = matemeup;
 			sourceTree = "<group>";
@@ -545,12 +548,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-matemeup/Pods-matemeup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -612,6 +617,7 @@
 				8A58A1FD2070800800C0E7A2 /* DateConverter.swift in Sources */,
 				8AA41FFF20676803000E8F01 /* Storage.swift in Sources */,
 				8AA4200120676939000E8F01 /* JWT.swift in Sources */,
+				8AB201C020C42F7900911A7F /* UserSelectController.swift in Sources */,
 				8A1133CF208CFE37009AF8F6 /* ChatContainerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

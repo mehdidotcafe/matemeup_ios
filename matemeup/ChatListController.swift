@@ -25,12 +25,16 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
         return false
     }
     
+    @IBAction func newChat(_ sender: Any) {
+        Navigation.goTo(segue: "goToUserListFromChatList", view: self)
+    }
+    
     @IBAction func filter(_ sender: UITextField) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "chatListFilter"), object: nil,  userInfo: ["pattern": sender.text])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "chatListFilter"), object: nil,  userInfo: ["pattern": sender.text!])
     }
     
 
-   func configSegmentedControl() {
+   private func configSegmentedControl() {
         segmented.layer.borderColor = UIColor.init(red: 33 / 255, green: 37 / 255, blue: 41 / 255, alpha: 1).cgColor
         filterInput.backgroundColor = UIColor.init(red: 33 / 255, green: 37 / 255, blue: 41 / 255, alpha: 1)
         segmented.layer.cornerRadius = 0.0
@@ -39,7 +43,7 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
         segmented.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
     }
     
-    func configSocket() {
+    private func configSocket() {
         socket.setup()
     }
     
@@ -90,6 +94,14 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
             if let toViewController = segue.destination as? ChatContainerController {
                 toViewController.setUser(self.user!)
                 toViewController.setIsInvitation(self.isInvitation)
+            }
+        } else if segue.identifier == "goToUserListFromChatList" {
+            let toViewController = segue.destination as! UserSelectController
+            
+            toViewController.setCallback{ newUser in
+                print("BONJOURRR")
+                self.user = newUser
+                Navigation.goTo(segue: "goToChat", view: self)
             }
         }
     }

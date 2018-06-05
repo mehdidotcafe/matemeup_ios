@@ -35,16 +35,17 @@ class LoginController: UIViewController, UITextFieldDelegate {
     private func checkLogin(email: String, password: String) {
         let _self: UIViewController = self
 
-        APIRequest.getInstance().send(route: "login", method: "POST", body: ["email": email, "password": password], callback: Callback(success: { data in
+        let _ = APIRequest.getInstance().send(route: "login", method: "POST", body: ["email": email, "password": password], callback: Callback(success: { data in
             let jsonData = data as? Dictionary<String, Any>
             let token = jsonData!["token"] as? String
             let user = jsonData!["user"] as? Dictionary<String, Any>
             
             JWT.putAPI(token!)
             APIRequest.getInstance().addQueryString("token", token!)
-            ConnectedUser.set(user!)
+            let _ = ConnectedUser.set(user!)
             Navigation.goTo(segue: "loginSuccessSegue", view: _self)
         }, fail: { error in
+            Alert.ok(controller: self, title: "Erreur lors de la connexion", message: "Email / Mot de passe invalide", callback: nil)
             print(error)
         }))
     }

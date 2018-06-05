@@ -44,7 +44,7 @@ public class RemoteImageLoader {
     
     static func load(view: UIImageView, base: String, path: String, callback: Callback?)  -> URLSessionDataTask? {
         let req: ImageRequest = ImageRequest.getInstance()
-        let url = base + (path.hasPrefix("/") ? path : "/" + path)
+        let url = base + (path.hasPrefix("/") ? "/" + path.dropFirst().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! : "/" + path.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)
         
         if cachedImage[url] == nil {
             return req.getFile(route: url, queryString: [:], callback: Callback(

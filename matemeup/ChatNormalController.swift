@@ -53,7 +53,7 @@ class ChatNormalController : AChatListController {
             }
             Style.border(view: cncell.notificationCount)
             if cncell.isNewUser() {
-                AvatarRemoteImageLoader.load(view: cncell.userAvatar, path: user["avatar"] as! String)
+                let _ = AvatarRemoteImageLoader.load(view: cncell.userAvatar, path: user["avatar"] as! String)
             }
         })
         setNewMessageListener()

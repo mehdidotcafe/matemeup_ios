@@ -15,6 +15,12 @@ class Storage {
         return defaults.string(forKey: key)
     }
     
+    public static func unset(_ key: String) {
+        let defaults = UserDefaults.standard
+        
+        defaults.removeObject(forKey: key)
+    }
+    
     public static func put(_ key: String, _ value: String) {
         let defaults = UserDefaults.standard
         
