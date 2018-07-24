@@ -43,6 +43,7 @@ class ChatNormalController : AChatListController {
  
             cncell.setNextUserId(user["id"] as? Int)
             cncell.userName.text = user["name"] as? String
+            cncell.userAvatar.contentMode = .scaleAspectFit
             Style.border(view: cncell.userAvatar)
             if count > 0 {
                 Style.rounded(view: cncell.notificationCount)

@@ -9,7 +9,7 @@
 import UIKit
 import GooglePlaces
 
-class ProfileController : AccountModifierController {
+class ProfileController : AccountModifierController, UITextFieldDelegate {
     
     // MARK: Properties
     @IBOutlet weak var avatarContainer: UIImageView!
@@ -33,6 +33,11 @@ class ProfileController : AccountModifierController {
         JWT.unsetAPI()
         MMUWebSocket.unset()
         Navigation.goTo(segue: "profilDeconnectionSegue", view: self)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     override func onLocationSet(location: String?) {
@@ -97,14 +102,23 @@ class ProfileController : AccountModifierController {
         locationContainer.layer.borderColor = UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0).cgColor
     }
     
+    func setDelegates() {
+        firstnameContainer.delegate = self
+        lastnameContainer.delegate = self
+        passwordContainer.delegate = self
+        confirmationPasswordContainer.delegate = self
+    }
+    
     override func viewDidLoad() {
         displayLocationInput()
         super.setInputs(birthdate: birthdateContainer, gender: genderContainer, openChat: chatSwitch)
         super.viewDidLoad()
+        setDelegates()
         getUser()
     }
     
     func updateSuccess(_ obj: Any) {
+        Alert.ok(controller: self, title: "Mise à jour de votre profil", message: "Votre profil s'est correctement mis à jour", callback: nil)
     }
     
     func updateFail(_ error: String) {

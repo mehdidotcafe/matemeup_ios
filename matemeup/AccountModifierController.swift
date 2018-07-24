@@ -18,7 +18,7 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
         return pickerData.count
     }
     
-    let pickerData = ["Man", "Woman"]
+    let pickerData = ["Homme", "Femme"]
     let birthdatePicker: UIDatePicker? = UIDatePicker()
     let genderPicker: UIPickerView = UIPickerView()
 
@@ -53,7 +53,7 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func setGenderValue(container: UITextField, gender: Int) {
-        container.text = gender == 0 ? "Man" : "Woman"
+        container.text = gender == 0 ? "Homme" : "Femme"
     }
     
     @objc func dateChanged(_ sender: UIDatePicker) {

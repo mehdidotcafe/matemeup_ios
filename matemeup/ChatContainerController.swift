@@ -110,7 +110,7 @@ class ChatContainerController : UIViewController, UITextFieldDelegate, ImagePick
         let imageView = UIImageView()
         let label = UILabel()
         
-        AvatarRemoteImageLoader.load(view: imageView, path: self.user!["avatar"] as! String)
+        let _ = AvatarRemoteImageLoader.load(view: imageView, path: self.user!["avatar"] as! String)
         view.alignment = .fill
         view.distribution = .fill
         view.axis = .horizontal
