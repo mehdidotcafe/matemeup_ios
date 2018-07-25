@@ -36,7 +36,7 @@ class ChatContainerController : UIViewController, UITextFieldDelegate, ImagePick
                 "userId": user!["id"],
                 "type": 1,
                 "message": text
-                ] as! Any, callback: nil)
+                ] as Any, callback: nil)
         }
     }
 
@@ -61,7 +61,7 @@ class ChatContainerController : UIViewController, UITextFieldDelegate, ImagePick
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         imagePicker.dismiss(animated: true)
-        let imageData = UIImageJPEGRepresentation(images[0], 40)
+        let imageData = UIImageJPEGRepresentation(images[0], 0.25)
         let base64encoding = imageData?.base64EncodedString()
         
         if (base64encoding != nil) {

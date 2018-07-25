@@ -45,8 +45,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
             let _ = ConnectedUser.set(user!)
             Navigation.goTo(segue: "loginSuccessSegue", view: _self)
         }, fail: { error in
-            Alert.ok(controller: self, title: "Erreur lors de la connexion", message: "Email / Mot de passe invalide", callback: nil)
-            print(error)
+            DispatchQueue.main.async {
+                Alert.ok(controller: self, title: "Erreur lors de la connexion", message: "Email / Mot de passe invalide", callback: nil)
+            }
         }))
     }
 

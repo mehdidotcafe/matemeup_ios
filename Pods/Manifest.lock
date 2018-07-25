@@ -14,6 +14,15 @@ DEPENDENCIES:
   - ImagePicker
   - Socket.IO-Client-Swift (~> 13.1.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Floaty
+    - GoogleMaps
+    - GooglePlaces
+    - ImagePicker
+    - Socket.IO-Client-Swift
+    - Starscream
+
 SPEC CHECKSUMS:
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
@@ -22,6 +31,6 @@ SPEC CHECKSUMS:
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
   Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
 
-PODFILE CHECKSUM: 3b0f84828cae5ed179f4b7c9ff316bf29dd541d6
+PODFILE CHECKSUM: 5384279d20c8aab976ac6718a33de6c8f8287947
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

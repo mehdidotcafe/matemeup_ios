@@ -36,7 +36,6 @@
 		8A6CCAF82089784E00FAE47C /* ChatNormalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAF72089784E00FAE47C /* ChatNormalController.swift */; };
 		8A6CCAFA2089785E00FAE47C /* ChatInvitationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAF92089785E00FAE47C /* ChatInvitationController.swift */; };
 		8A6CCAFC2089786E00FAE47C /* AChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CCAFB2089786E00FAE47C /* AChatListController.swift */; };
-		8A7605832072CF28004D6D04 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605822072CF27004D6D04 /* GooglePlaces.framework */; };
 		8A7605912072D17E004D6D04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605852072D17C004D6D04 /* CoreGraphics.framework */; };
 		8A7605922072D17E004D6D04 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605862072D17C004D6D04 /* GLKit.framework */; };
 		8A7605932072D17E004D6D04 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605872072D17D004D6D04 /* ImageIO.framework */; };
@@ -52,7 +51,6 @@
 		8A76059F2072D198004D6D04 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76059D2072D197004D6D04 /* QuartzCore.framework */; };
 		8A7605A02072D198004D6D04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A76059E2072D198004D6D04 /* SystemConfiguration.framework */; };
 		8A7605A22072D19F004D6D04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605A12072D19F004D6D04 /* UIKit.framework */; };
-		8A7605A42072D503004D6D04 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7605A32072D502004D6D04 /* GoogleMapsBase.framework */; };
 		8A9F4E252062FF2100810D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F4E242062FF2100810D61 /* AppDelegate.swift */; };
 		8A9F4E2A2062FF2100810D61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9F4E282062FF2100810D61 /* Main.storyboard */; };
 		8A9F4E2F2062FF2100810D61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9F4E2D2062FF2100810D61 /* LaunchScreen.storyboard */; };
@@ -79,9 +77,14 @@
 		8AEE1CF920AA2EDF0029DCCC /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE1CF820AA2EDF0029DCCC /* Navbar.swift */; };
 		8AEE1CFB20AA5AB00029DCCC /* NewMessageNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE1CFA20AA5AB00029DCCC /* NewMessageNotifier.swift */; };
 		8AF6C961206A0C600069DF5C /* backtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF6C960206A0C600069DF5C /* backtitle.png */; };
-		8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */; };
-		8AF6C965206A17330069DF5C /* AvatarRemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */; };
-		AE8C76EFBF185CBF2430FF32 /* Pods_matemeup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827E267FB09D7E0C688F3CB4 /* Pods_matemeup.framework */; };
+		918EC5FA2107CD2F00FAF857 /* AvatarRemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EC5F42107CD2E00FAF857 /* AvatarRemoteImageLoader.swift */; };
+		918EC5FC2107CD2F00FAF857 /* RemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EC5F62107CD2E00FAF857 /* RemoteImageLoader.swift */; };
+		918EC5FD2107CD2F00FAF857 /* DataSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EC5F72107CD2E00FAF857 /* DataSegue.swift */; };
+		918EC5FE2107CD2F00FAF857 /* ImageDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EC5F82107CD2E00FAF857 /* ImageDirectory.swift */; };
+		918EC5FF2107CD2F00FAF857 /* ChatNormalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EC5F92107CD2E00FAF857 /* ChatNormalView.swift */; };
+		918EC6022107CE3300FAF857 /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 918EC6002107CE3300FAF857 /* GooglePlaces.bundle */; };
+		918EC6032107CE3300FAF857 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918EC6012107CE3300FAF857 /* GooglePlaces.framework */; };
+		91C47B3A2107D6E70017656A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C47B392107D6E70017656A /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +152,6 @@
 		8A76059D2072D197004D6D04 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8A76059E2072D198004D6D04 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8A7605A12072D19F004D6D04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		8A7605A32072D502004D6D04 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = "../../../Downloads/GoogleMaps-2.6.0/Base/Frameworks/GoogleMapsBase.framework"; sourceTree = "<group>"; };
 		8A9F4E212062FF2100810D61 /* matemeup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = matemeup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9F4E242062FF2100810D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9F4E292062FF2100810D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -182,8 +184,16 @@
 		8AEE1CF820AA2EDF0029DCCC /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		8AEE1CFA20AA5AB00029DCCC /* NewMessageNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageNotifier.swift; sourceTree = "<group>"; };
 		8AF6C960206A0C600069DF5C /* backtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backtitle.png; path = matemeup/Assets.xcassets/backtitle/backtitle.png; sourceTree = "<group>"; };
-		8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteImageLoader.swift; path = /Users/mehdimeddour/Documents/matemeup/matemeup/RemoteImageLoader.swift; sourceTree = "<absolute>"; };
-		8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarRemoteImageLoader.swift; path = /Users/mehdimeddour/Documents/matemeup/matemeup/AvatarRemoteImageLoader.swift; sourceTree = "<absolute>"; };
+		918EC5F42107CD2E00FAF857 /* AvatarRemoteImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarRemoteImageLoader.swift; sourceTree = "<group>"; };
+		918EC5F62107CD2E00FAF857 /* RemoteImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageLoader.swift; sourceTree = "<group>"; };
+		918EC5F72107CD2E00FAF857 /* DataSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSegue.swift; sourceTree = "<group>"; };
+		918EC5F82107CD2E00FAF857 /* ImageDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDirectory.swift; sourceTree = "<group>"; };
+		918EC5F92107CD2E00FAF857 /* ChatNormalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNormalView.swift; sourceTree = "<group>"; };
+		918EC6002107CE3300FAF857 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlaces.bundle; sourceTree = "<group>"; };
+		918EC6012107CE3300FAF857 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
+		91C47B392107D6E70017656A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		91C47B3C21080B030017656A /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		91C47B3D21080B8E0017656A /* matemeup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = matemeup.entitlements; sourceTree = "<group>"; };
 		ED0FD234E7DEBC91E5F11EC6 /* Pods-matemeup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-matemeup.release.xcconfig"; path = "Pods/Target Support Files/Pods-matemeup/Pods-matemeup.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,13 +202,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C47B3A2107D6E70017656A /* CoreBluetooth.framework in Frameworks */,
 				8A7605A22072D19F004D6D04 /* UIKit.framework in Frameworks */,
 				8A76059F2072D198004D6D04 /* QuartzCore.framework in Frameworks */,
 				8A7605A02072D198004D6D04 /* SystemConfiguration.framework in Frameworks */,
 				8A7605912072D17E004D6D04 /* CoreGraphics.framework in Frameworks */,
 				8A7605922072D17E004D6D04 /* GLKit.framework in Frameworks */,
 				8A7605932072D17E004D6D04 /* ImageIO.framework in Frameworks */,
-				8A7605A42072D503004D6D04 /* GoogleMapsBase.framework in Frameworks */,
 				8A7605942072D17E004D6D04 /* CoreText.framework in Frameworks */,
 				8A7605952072D17E004D6D04 /* libz.tbd in Frameworks */,
 				8A7605962072D17E004D6D04 /* OpenGLES.framework in Frameworks */,
@@ -208,8 +218,7 @@
 				8A76059A2072D17E004D6D04 /* CoreData.framework in Frameworks */,
 				8A76059B2072D17E004D6D04 /* Accelerate.framework in Frameworks */,
 				8A76059C2072D17E004D6D04 /* CoreImage.framework in Frameworks */,
-				8A7605832072CF28004D6D04 /* GooglePlaces.framework in Frameworks */,
-				AE8C76EFBF185CBF2430FF32 /* Pods_matemeup.framework in Frameworks */,
+				918EC6032107CE3300FAF857 /* GooglePlaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +242,7 @@
 		8A7605842072D17C004D6D04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91C47B392107D6E70017656A /* CoreBluetooth.framework */,
 				8A7605A12072D19F004D6D04 /* UIKit.framework */,
 				8A76059D2072D197004D6D04 /* QuartzCore.framework */,
 				8A76059E2072D198004D6D04 /* SystemConfiguration.framework */,
@@ -283,11 +293,17 @@
 		8A9F4E232062FF2100810D61 /* matemeup */ = {
 			isa = PBXGroup;
 			children = (
-				8A7605A32072D502004D6D04 /* GoogleMapsBase.framework */,
+				91C47B3C21080B030017656A /* Montserrat-Regular.ttf */,
+				91C47B3D21080B8E0017656A /* matemeup.entitlements */,
+				918EC6002107CE3300FAF857 /* GooglePlaces.bundle */,
+				918EC6012107CE3300FAF857 /* GooglePlaces.framework */,
+				918EC5F42107CD2E00FAF857 /* AvatarRemoteImageLoader.swift */,
+				918EC5F92107CD2E00FAF857 /* ChatNormalView.swift */,
+				918EC5F72107CD2E00FAF857 /* DataSegue.swift */,
+				918EC5F82107CD2E00FAF857 /* ImageDirectory.swift */,
+				918EC5F62107CD2E00FAF857 /* RemoteImageLoader.swift */,
 				8A7605822072CF27004D6D04 /* GooglePlaces.framework */,
 				8A6495A7206CD16B005DBA36 /* LoginController.swift */,
-				8AF6C964206A17330069DF5C /* AvatarRemoteImageLoader.swift */,
-				8AF6C962206A16CC0069DF5C /* RemoteImageLoader.swift */,
 				8A9F4E242062FF2100810D61 /* AppDelegate.swift */,
 				8AA42002206771D3000E8F01 /* MainController.swift */,
 				8A9F4E282062FF2100810D61 /* Main.storyboard */,
@@ -439,6 +455,11 @@
 					8A9F4E202062FF2100810D61 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					8A9F4E342062FF2100810D61 = {
 						CreatedOnToolsVersion = 9.2;
@@ -484,6 +505,7 @@
 				8AF6C961206A0C600069DF5C /* backtitle.png in Resources */,
 				8A4A6706206DC0E0006B6646 /* logo-margin.png in Resources */,
 				8A9F4E2A2062FF2100810D61 /* Main.storyboard in Resources */,
+				918EC6022107CE3300FAF857 /* GooglePlaces.bundle in Resources */,
 				8A3C8437206470D3005253F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,7 +597,6 @@
 				8A1133D1208D32A5009AF8F6 /* Scroller.swift in Sources */,
 				8A08BBC9209DF0F30097451D /* Constants.swift in Sources */,
 				8AEE1CF720AA0A770029DCCC /* NavigationController.swift in Sources */,
-				8AF6C965206A17330069DF5C /* AvatarRemoteImageLoader.swift in Sources */,
 				8AB52FBE2086740E004EA404 /* WebSocket.swift in Sources */,
 				8AE9C7C2206A3C5D001A970F /* APIRequest.swift in Sources */,
 				8A58A1F92070607800C0E7A2 /* AccountModifierController.swift in Sources */,
@@ -592,11 +613,14 @@
 				8AE9C7C4206A3FFD001A970F /* ImageRequest.swift in Sources */,
 				8AA9FB6A2068666200975DD0 /* ChatListController.swift in Sources */,
 				8A504D7A208BFC6500EC0087 /* ChatController.swift in Sources */,
+				918EC5FD2107CD2F00FAF857 /* DataSegue.swift in Sources */,
+				918EC5FF2107CD2F00FAF857 /* ChatNormalView.swift in Sources */,
 				8AC42692206B737300ECB391 /* ForgotPasswordController.swift in Sources */,
 				8AEE1CF320A9FF330029DCCC /* Style.swift in Sources */,
 				8AA41FFD206752D1000E8F01 /* Callback.swift in Sources */,
 				8AEE1CF920AA2EDF0029DCCC /* Navbar.swift in Sources */,
 				8AC42694206B7D2A00ECB391 /* Validator.swift in Sources */,
+				918EC5FC2107CD2F00FAF857 /* RemoteImageLoader.swift in Sources */,
 				8AA9FB6C206866B500975DD0 /* ProfileController.swift in Sources */,
 				8A58A1FB2070777200C0E7A2 /* Getter.swift in Sources */,
 				8AB52FBC20866FA1004EA404 /* LayoutUIViewController.swift in Sources */,
@@ -606,9 +630,9 @@
 				8A08BBCF209E6F8E0097451D /* FriendController.swift in Sources */,
 				8A0C213A20ACFCE00030298D /* Alert.swift in Sources */,
 				8A6495A8206CD16C005DBA36 /* LoginController.swift in Sources */,
-				8AF6C963206A16CD0069DF5C /* RemoteImageLoader.swift in Sources */,
 				8A08BBCD209E19370097451D /* ChatRemoteImageLoader.swift in Sources */,
 				8A6CCAF42089068600FAE47C /* MMUWebSocket.swift in Sources */,
+				918EC5FE2107CD2F00FAF857 /* ImageDirectory.swift in Sources */,
 				8AEE1CFB20AA5AB00029DCCC /* NewMessageNotifier.swift in Sources */,
 				8A133291209FDCCD00630181 /* FriendTableController.swift in Sources */,
 				8A588C5B20A24F3800D520BB /* TabBarController.swift in Sources */,
@@ -617,6 +641,7 @@
 				8A58A1FD2070800800C0E7A2 /* DateConverter.swift in Sources */,
 				8AA41FFF20676803000E8F01 /* Storage.swift in Sources */,
 				8AA4200120676939000E8F01 /* JWT.swift in Sources */,
+				918EC5FA2107CD2F00FAF857 /* AvatarRemoteImageLoader.swift in Sources */,
 				8AB201C020C42F7900911A7F /* UserSelectController.swift in Sources */,
 				8A1133CF208CFE37009AF8F6 /* ChatContainerController.swift in Sources */,
 			);
@@ -789,6 +814,7 @@
 			baseConfigurationReference = 067CD707F5FBE913C25CE306 /* Pods-matemeup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = matemeup/matemeup.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8UJ286PXHV;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -808,7 +834,10 @@
 					"-isystem",
 					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = matemeup.matemeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -821,6 +850,7 @@
 			baseConfigurationReference = ED0FD234E7DEBC91E5F11EC6 /* Pods-matemeup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = matemeup/matemeup.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8UJ286PXHV;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -840,7 +870,10 @@
 					"-isystem",
 					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = matemeup.matemeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

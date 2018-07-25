@@ -99,7 +99,6 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
             let toViewController = segue.destination as! UserSelectController
             
             toViewController.setCallback{ newUser in
-                print("BONJOURRR")
                 self.user = newUser
                 Navigation.goTo(segue: "goToChat", view: self)
             }
