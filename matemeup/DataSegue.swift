@@ -10,8 +10,5 @@ import UIKit
 
 class DataSegue : UIStoryboardSegue {
     override func perform() {
-        
-        let src = self.source
-        let dst = self.destination
     }
 }

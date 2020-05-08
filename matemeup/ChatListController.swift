@@ -15,7 +15,7 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
     @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var invitationView: UIView!
     @IBOutlet weak var filterInput: UITextField!
-    var socket: MMUWebSocket = MMUWebSocket.getInstance()
+    var socket: MMUWebSocket? = nil
     
     var user: User? = nil
     var isInvitation: Bool = false
@@ -44,7 +44,7 @@ class ChatListController : LayoutUIViewController, UITextFieldDelegate {
     }
     
     private func configSocket() {
-        socket.setup()
+        socket = MMUWebSocket.getInstance()
     }
     
     override func viewDidLoad() {

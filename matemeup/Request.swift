@@ -24,7 +24,6 @@ class Request {
             }
             ret += key.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "=" + value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         }
-        print(ret)
         return ret
     }
     
@@ -51,12 +50,8 @@ class Request {
 
         let request = NSMutableURLRequest(url: NSURL(string: self.setDefaultUrlParams(route, queryString))! as URL)
         
-        //print("REQUEST URL")
-        //print(self.setDefaultUrlParams(route, queryString))
         request.httpMethod = method
-        //if (method == "POST") {
-         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        //}
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         

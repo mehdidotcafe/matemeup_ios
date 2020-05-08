@@ -12,6 +12,10 @@ class APIRequest: Request {
     private var BASE_URL: String = Constants.apiUrl
     private static var instance: APIRequest?
     private var queryStrings: Dictionary<String, String> = [:]
+    
+    public func unsetQueryString() {
+        self.queryStrings = [:]
+    }
 
     static func getInstance() -> APIRequest {
         if (instance == nil) {

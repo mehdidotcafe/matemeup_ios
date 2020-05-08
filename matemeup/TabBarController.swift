@@ -75,7 +75,9 @@ class TabBarController : UITabBarController {
     }
     
     override func viewDidLoad() {
-        self.tabBar.unselectedItemTintColor = UIColor.white
+        if #available(iOS 10.0, *) {
+            self.tabBar.unselectedItemTintColor = UIColor.white
+        }
         Style.shadowTop(view: self.tabBar)
         setListeners()
         let logo = UIImage(named: "logo-margin.png")

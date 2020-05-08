@@ -20,6 +20,7 @@ class WebSocket {
   
     init(url: String) {
         BASE_URL = url
+        setup()
     }
     
     func off(message: String) {
@@ -79,6 +80,7 @@ class WebSocket {
     
     func emit(message: String, data: Any, callback: Callback?) {
         if !isConnected {
+            print("NOT CONNECTEd, CACHING")
             cachedRequest.append((message, data, callback))
         }
         else {
@@ -93,11 +95,19 @@ class WebSocket {
             }
         }
     }
-
-    func setup() {
-        manager = SocketManager(socketURL: URL(string: BASE_URL)!, config: [.log(true), .compress])
-        socket = manager!.socket(forNamespace: "/")
+    
+    func onConnectError() {
         
+    }
+
+    func onReconnect() {
+        
+    }
+    
+    func setup() {
+        manager = SocketManager(socketURL: URL(string: BASE_URL)!, config: [.log(false), .compress, .reconnects(true)])
+        socket = manager!.socket(forNamespace: "/")
+
         socket!.on(clientEvent: .connect) {data, ack in
             self.isConnected = true
             self.execCachedListeners()
@@ -105,8 +115,28 @@ class WebSocket {
         }
         
         socket!.on(clientEvent: .disconnect) {data, ack in
-            print("socket not connected")
+            print("SOCKET DISCONNECTED")
+            //self.onConnectError()
         }
+        
+        socket!.on(clientEvent: .reconnect) {data, ack in
+            print("RECONNECT EVENT")
+            //print(data)
+            //self.onReconnect()
+        }
+        
+        socket!.on(clientEvent: .reconnectAttempt) {data, ack in
+            print("RECONNECT ATTEMPT EVENT")
+            //print(data)
+            self.onReconnect()
+        }
+        
+        socket!.on(clientEvent: .error) {data, ack in
+            print("ON ERROR")
+            self.onReconnect()
+            //self.onConnectError()
+        }
+        
         
         socket!.connect()
     }

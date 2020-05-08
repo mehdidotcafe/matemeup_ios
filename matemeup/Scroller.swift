@@ -13,7 +13,6 @@ class Scroller {
         DispatchQueue.main.async {
             if array.count > 0 {
                 let indexPath = IndexPath(row: array.count-1, section: 0)
-                print(view, indexPath)
                 view.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
         }

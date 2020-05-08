@@ -19,6 +19,16 @@ class Alert {
         controller.present(refreshAlert, animated: true, completion: nil)
     }
     
+    public static func ok(controller: UIViewController, title: String, message: [String], callback: Callback?) {
+        let refreshAlert = UIAlertController(title: title, message: message.joined(separator: "\n"), preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+            callback?.success(action)
+        }))
+        
+        controller.present(refreshAlert, animated: true, completion: nil)
+    }
+    
     public static func yesNo(controller: UIViewController, title: String, message: String, callback: Callback?) {
         let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         

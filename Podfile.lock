@@ -1,22 +1,19 @@
 PODS:
-  - Floaty (4.0.0)
-  - GoogleMaps/Base (2.6.0)
-  - GooglePlaces (2.6.0):
-    - GoogleMaps/Base (= 2.6.0)
+  - GoogleMaps/Base (2.7.0)
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
   - ImagePicker (3.0.0)
   - Socket.IO-Client-Swift (13.1.3):
     - Starscream (~> 3.0.2)
-  - Starscream (3.0.4)
+  - Starscream (3.0.5)
 
 DEPENDENCIES:
-  - Floaty (~> 4.0.0)
   - GooglePlaces
   - ImagePicker
   - Socket.IO-Client-Swift (~> 13.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Floaty
     - GoogleMaps
     - GooglePlaces
     - ImagePicker
@@ -24,13 +21,12 @@ SPEC REPOS:
     - Starscream
 
 SPEC CHECKSUMS:
-  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
-  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
-  GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   ImagePicker: 973953c25960fe04729a7082a56194321c6762d2
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
-  Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
 
-PODFILE CHECKSUM: 5384279d20c8aab976ac6718a33de6c8f8287947
+PODFILE CHECKSUM: 4c3abacf163a051783be6c198c17fa8772ed3e43
 
 COCOAPODS: 1.5.3

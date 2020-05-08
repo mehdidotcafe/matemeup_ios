@@ -109,7 +109,6 @@ class NewMessageNotifier {
             let user = userMessages[userId]!
             
             userMessages.removeValue(forKey: userId)
-            print(userMessages)
             notifyDelUser(user)
         }
     }

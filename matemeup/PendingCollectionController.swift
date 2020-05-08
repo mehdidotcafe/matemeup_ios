@@ -53,7 +53,7 @@ class PendingCollectionController : UICollectionViewController {
 
         Style.border(view: pendingCell.avatar)
         pendingCell.name.text = user["name"] as? String
-        AvatarRemoteImageLoader.load(view: pendingCell.avatar, path: user["avatar"] as! String)
+        let _ = AvatarRemoteImageLoader.load(view: pendingCell.avatar, path: user["avatar"] as! String)
         return pendingCell
     }
 }

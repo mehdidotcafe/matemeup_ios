@@ -22,17 +22,36 @@ class ProfileController : AccountModifierController, UITextFieldDelegate {
     @IBOutlet weak var genderContainer: UITextField!
     @IBOutlet weak var chatSwitch: UISwitch!
     @IBOutlet weak var locationContainer: UIButton!
+    @IBOutlet weak var rewardButton: UIButton!
     
     @IBAction func displayLocation(_ sender: Any) {
         self.displayLocationView()
         
     }
     
+    @IBAction func getReward(_ sender: Any) {
+        MMUWebSocket.getInstance().emit(message: "reward.use", data: [:], callback: Callback(
+            success: { data in
+                print(data)
+                let response = data as! [String: Any]
+                
+                Alert.ok(controller: self, title: "Votre récompense: ", message: self.getRewardAsMessages((response["rewards"] as? [String: String])!), callback: nil)
+        },
+            fail: {data in print("FAIL GETTING REWARD")}))
+    }
+    
     @IBAction func deconnection(_ sender: Any) {
-        ConnectedUser.unset()
-        JWT.unsetAPI()
-        MMUWebSocket.unset()
+        Loginout.logout()
         Navigation.goTo(segue: "profilDeconnectionSegue", view: self)
+    }
+    
+    func getRewardAsMessages(_ rewards: [String: String]) -> [String] {
+        var ret: [String] = []
+        
+        for (key, value) in rewards {
+            ret.append(value + " " + key + ".")
+        }
+        return ret
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -109,7 +128,29 @@ class ProfileController : AccountModifierController, UITextFieldDelegate {
         confirmationPasswordContainer.delegate = self
     }
     
-    override func viewDidLoad() {
+    func setButtonRewardVisibility() {
+        print("AU REVOIR")
+        MMUWebSocket.getInstance().emit(message: "reward.isAvailable", data: [:], callback: Callback(
+            success: { data in
+                print(data)
+                let response = data as! [String: Any]
+               
+                self.rewardButton.isHidden = true
+                if (response["state"] as? Bool == true &&
+                    response["isAvailable"] as? Bool == true) {
+                    self.rewardButton.isHidden = false
+                }
+        },
+            fail: {data in print("FAIL GETTING REWARD AVAILABILITY")}))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setButtonRewardVisibility()
+        
+    }
+    
+    override func viewDidLoad() {        
         displayLocationInput()
         super.setInputs(birthdate: birthdateContainer, gender: genderContainer, openChat: chatSwitch)
         super.viewDidLoad()
@@ -118,7 +159,10 @@ class ProfileController : AccountModifierController, UITextFieldDelegate {
     }
     
     func updateSuccess(_ obj: Any) {
-        Alert.ok(controller: self, title: "Mise à jour de votre profil", message: "Votre profil s'est correctement mis à jour", callback: nil)
+        DispatchQueue.main.async {
+            Alert.ok(controller: self, title: "Mise à jour de votre profil", message: "Votre profil s'est correctement mis à jour", callback: nil)
+        }
+        
     }
     
     func updateFail(_ error: String) {
@@ -130,11 +174,10 @@ class ProfileController : AccountModifierController, UITextFieldDelegate {
         let obj = self.validateFields(getValidation())
         
         if (obj != nil) {
-            APIRequest.getInstance().send(route: "update", method: "POST", body: obj!, callback: Callback(
+            let _ = APIRequest.getInstance().send(route: "update", method: "POST", body: obj!, callback: Callback(
                 success: self.updateSuccess,
                 fail: self.updateFail
             ))
         }
     }
 }
-

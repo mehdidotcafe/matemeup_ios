@@ -32,7 +32,6 @@ class MainController: UIViewController {
     }
     
     override func viewDidLoad() {
-        print("bonjour")
         super.viewDidLoad()
         let jwt = JWT.getAPI()
 

@@ -127,7 +127,6 @@ class FriendTableController : UITableViewController {
     }
     
     func sendFriendRequest(_ user: User) {
-        print(user)
         MMUWebSocket.getInstance().emit(message: "friend.add", data: ["friendId": user["id"]], callback: Callback(
             success: {data in
                 if (data as! [String: Any])["state"] as! Int == 0 {
@@ -153,7 +152,7 @@ class FriendTableController : UITableViewController {
         cell.setUser(friend)
         cell.setController(self)
         Style.border(view: cell.avatar)
-        AvatarRemoteImageLoader.load(view: cell.avatar, path: friend["avatar"] as! String)
+        let _ = AvatarRemoteImageLoader.load(view: cell.avatar, path: friend["avatar"] as! String)
         cell.name.text = friend["name"] as? String
         
         return cell
@@ -228,7 +227,6 @@ class FriendTableController : UITableViewController {
     }
     
     @objc private func goToUserList() {
-        print("BONJOUR LES AMIGOS")
         Navigation.goTo(segue: "goToUserListFromFriendList", view: self)
     }
     
@@ -240,9 +238,11 @@ class FriendTableController : UITableViewController {
         
         button.addTarget(self, action: #selector(self.goToUserList), for: .touchUpInside)
         self.tabBarController?.navigationItem.rightBarButtonItem = barButton
-        print("BONJOUR")
-        print(self.tabBarController)
-        //self.tabBarController?.navigationItem.title = "YOLO LES AMIS"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewDidLoad() {

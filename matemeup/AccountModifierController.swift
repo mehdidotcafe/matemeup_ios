@@ -58,7 +58,7 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @objc func dateChanged(_ sender: UIDatePicker) {
         let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
-        if let day = componenets.day, let month = componenets.month, let year = componenets.year {
+        if let _ = componenets.day, let _ = componenets.month, let _ = componenets.year {
         }
     }
     
@@ -174,7 +174,7 @@ class AccountModifierController: UIViewController, UIPickerViewDelegate, UIPicke
             if validateField(value) == false {
                 return nil
             } else {
-                ret[key] = value[0] as! String
+                ret[key] = (value[0] as! String)
             }
         }
         return ret

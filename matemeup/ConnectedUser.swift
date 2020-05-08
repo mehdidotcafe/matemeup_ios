@@ -43,7 +43,7 @@ class ConnectedUser {
 
     
     public static func getInstance(_ user: Dictionary<String, Any>) -> ConnectedUser {
-        var ninstance: ConnectedUser = getInstance()
+        let ninstance: ConnectedUser = getInstance()
         
         ninstance.name = emptyStringOnNil(user["name"]!)
         ninstance.firstname = emptyStringOnNil(user["firstname"]!)
